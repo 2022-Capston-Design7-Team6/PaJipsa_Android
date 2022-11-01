@@ -1,4 +1,4 @@
-package com.capston.patech_android
+package com.capstone.patech_android
 
 import org.junit.Test
 

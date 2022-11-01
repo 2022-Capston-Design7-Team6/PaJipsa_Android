@@ -1,4 +1,4 @@
-package com.capston.patech_android.base
+package com.capstone.patech_android.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
