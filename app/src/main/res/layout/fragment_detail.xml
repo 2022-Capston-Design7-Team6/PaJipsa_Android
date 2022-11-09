@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_arrow_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginStart="20dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btn_back">
+
+                    <TextView
+                        android:id="@+id/btn_harvest"
+                        style="@style/TextView.Patech.LeftButton"
+                        android:layout_marginEnd="12dp"
+                        android:paddingVertical="5dp"
+                        android:paddingStart="5dp"
+                        android:paddingEnd="8dp"
+                        android:text="수확하기"
+                        app:drawableStartCompat="@drawable/ic_harvest_20" />
+
+                    <TextView
+                        android:id="@+id/btn_write"
+                        style="@style/TextView.Patech.LeftButton"
+                        android:layout_gravity="end"
+                        android:padding="6dp"
+                        android:text="일지작성"
+                        app:drawableStartCompat="@drawable/ic_plus_18" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="33dp"
+                    android:background="@drawable/shape_black_fill_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_back">
+
+                    <ImageView
+                        android:id="@+id/btn_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_info"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="18dp"
+                        android:src="@drawable/ic_onion_22"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="14dp"
+                        android:includeFontPadding="false"
+                        android:text="양파양파"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
+                        android:textColor="@color/green_main"
+                        app:layout_constraintStart_toEndOf="@id/iv_category"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="2"
+                        android:orientation="horizontal"
+                        android:rowCount="3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_category">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:text="등록일"
+                            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
+                            android:textColor="@color/green_dark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="19dp"
+                            android:fontFamily="@font/noto_medium"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            tools:text="2022. 10.10 (D+ 20일)" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:includeFontPadding="false"
+                            android:text="수확 예정일"
+                            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
+                            android:textColor="@color/green_dark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="19dp"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/noto_medium"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            tools:text="2주 후" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:includeFontPadding="false"
+                            android:text="물주는 날"
+                            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
+                            android:textColor="@color/green_dark" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="19dp"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/noto_medium"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/white"
+                            android:textSize="15dp"
+                            tools:text="2주 후" />
+                    </GridLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/tv_graph"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:includeFontPadding="false"
+                    android:text="성장 그래프"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_info" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/shape_light_green_fill_30"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="3dp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_graph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_graph">
+
+                    <RadioButton
+                        android:id="@+id/radio_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_radio_graph_mode_bg"
+                        android:button="@null"
+                        android:checked="true"
+                        android:includeFontPadding="false"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="넓이"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Medium.12"
+                        android:textColor="@color/selector_radio_graph_mode_text_color" />
+
+                    <RadioButton
+                        android:id="@+id/radio_height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_radio_graph_mode_bg"
+                        android:button="@null"
+                        android:includeFontPadding="false"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:text="높이"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Medium.12"
+                        android:textColor="@color/selector_radio_graph_mode_text_color" />
+                </RadioGroup>
+
+
+                <View
+                    android:id="@+id/layout_graph"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#f6f6f6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_graph" />
+
+                <TextView
+                    android:id="@+id/tv_graph_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="20dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/unit_area"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
+                    android:textColor="#676767"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_graph" />
+
+
+                <TextView
+                    android:id="@+id/tv_timeline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:includeFontPadding="false"
+                    android:text="타임라인"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_graph" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_timeline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginBottom="30dp"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_timeline"
+                    tools:listitem="@layout/item_detail_timeline" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

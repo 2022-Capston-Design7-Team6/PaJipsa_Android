@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/noto_bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10.21" />
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="22dp"
+            android:background="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_date"
+            app:layout_constraintTop_toTopOf="@id/tv_date" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/iv_image"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_detail_timeline_category" />
+
+        <TextView
+            android:id="@+id/tv_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:includeFontPadding="false"
+            android:text="오늘은 분갈이도 3cm 수확도 하고 새로운 화분으로 분갈이도 해주었다"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/rv_category" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_record" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

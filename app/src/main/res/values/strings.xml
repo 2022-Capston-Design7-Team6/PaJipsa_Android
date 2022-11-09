@@ -3,4 +3,7 @@
 
     <!-- BindingFragment -->
     <string name="binding_error">Binding not initialized to reference the view.</string>
+    
+    <string name="unit_area">단위: cm²</string>
+    <string name="unit_height">단위: cm</string>
 </resources>
