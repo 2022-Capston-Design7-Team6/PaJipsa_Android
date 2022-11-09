@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -8,7 +9,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/iv_pa_picture"
+            android:id="@+id/iv_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginBottom="12dp"
@@ -25,7 +26,7 @@
             android:layout_marginTop="2dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_pa_picture"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -34,17 +35,17 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:includeFontPadding="false"
-                android:text="양파파"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:text="양파파" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:text="D+80"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:text="D+80" />
         </LinearLayout>
 
         <TextView
@@ -52,10 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:includeFontPadding="false"
-            android:text="2주 후 수확예정"
             android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/layout_name"
-            app:layout_constraintTop_toBottomOf="@id/layout_name" />
+            app:layout_constraintTop_toBottomOf="@id/layout_name"
+            tools:text="2주 후 수확예정" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
