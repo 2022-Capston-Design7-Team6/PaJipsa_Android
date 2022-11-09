@@ -6,6 +6,7 @@
         <item name="android:textColorHint">?android:textColorHint</item>
         <item name="android:textColorHighlight">?android:textColorHighlight</item>
         <item name="android:textColorLink">?android:textColorLink</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="TextAppearance.PatechComponents.Bold.20" parent="TextAppearance.PatechComponents">
