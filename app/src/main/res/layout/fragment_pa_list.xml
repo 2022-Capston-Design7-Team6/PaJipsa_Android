@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_back">
+
+            <CheckBox
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/ic_edit"
+                android:button="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp" />
+
+            <TextView
+                android:id="@+id/btn_new"
+                style="@style/TextView.Patech.LeftButton"
+                android:layout_gravity="end"
+                android:padding="6dp"
+                android:text="식물등록"
+                app:drawableStartCompat="@drawable/ic_plus_18" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:includeFontPadding="false"
+            android:text="삭제"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+            android:textColor="@color/green_dark"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/btn_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_back">
+
+            <RadioButton
+                android:id="@+id/radio_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_radio_list_category_bg"
+                android:button="@null"
+                android:checked="true"
+                android:includeFontPadding="false"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingHorizontal="13dp"
+                android:paddingVertical="8dp"
+                android:text="전체선택"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+                android:textColor="@color/green_main" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/black" />
+
+            <RadioButton
+                android:id="@+id/radio_green_onion"
+                style="@style/RadioButton.Patech.category"
+                android:drawableStart="@drawable/ic_green_onion_24"
+                android:text="대파" />
+
+            <RadioButton
+                android:id="@+id/radio_onion"
+                style="@style/RadioButton.Patech.category"
+                android:drawableStart="@drawable/ic_onion_24"
+                android:text="양파" />
+
+            <RadioButton
+                android:id="@+id/radio_chive"
+                style="@style/RadioButton.Patech.category"
+                android:drawableStart="@drawable/ic_chive_24"
+                android:text="쪽파" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            tools:listitem="@layout/item_pa_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

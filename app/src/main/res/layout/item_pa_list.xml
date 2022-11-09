@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp">
+
+        <LinearLayout
+            android:id="@+id/layout_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="top"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <CheckBox
+                android:id="@+id/cb_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/selector_checkbox"
+                android:button="@null"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@color/gray_light" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/layout_image"
+            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            app:layout_constraintStart_toEndOf="@id/layout_image"
+            app:layout_constraintTop_toTopOf="@id/layout_image">
+
+            <ImageView
+                android:id="@+id/iv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/ic_onion_22" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:includeFontPadding="false"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+                android:textColor="@color/black"
+                tools:text="양파파" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:includeFontPadding="false"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
+                android:textColor="@color/black"
+                tools:text="2주 후 수확예정" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:includeFontPadding="false"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layout_image"
+            tools:text="D+80" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
