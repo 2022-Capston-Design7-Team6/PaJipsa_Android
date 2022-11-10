@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentPlantListBinding
+import com.capstone.patech_android.util.popBackStack
 
 class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListViewModel>(
     R.layout.fragment_plant_list
@@ -20,6 +21,7 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
         viewModel.fetchPlantList()
         initHomeRVAdapter()
         setPlantList()
+        addListener()
     }
 
     private fun initHomeRVAdapter() {
@@ -31,6 +33,12 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
             list?.let {
                 with(plantListAdapter) { submitList(list) }
             }
+        }
+    }
+
+    private fun addListener() {
+        binding.btnBack.setOnClickListener {
+            popBackStack()
         }
     }
 }

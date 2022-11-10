@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHomeBinding
+import com.capstone.patech_android.util.navigate
 
 class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
     R.layout.fragment_home
@@ -20,6 +21,7 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
         viewModel.fetchPlantList()
         initHomeRVAdapter()
         setPlantList()
+        addListener()
     }
 
     private fun initHomeRVAdapter() {
@@ -31,6 +33,18 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
             list?.let {
                 with(plantAdapter) { submitList(list) }
             }
+        }
+    }
+
+    private fun addListener() {
+        binding.layoutRank.setOnClickListener {
+            navigate(R.id.action_homeFragment_to_patechFragment)
+        }
+        binding.icProfile.setOnClickListener {
+            navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+        binding.btnPlantList.setOnClickListener {
+            navigate(R.id.action_homeFragment_to_plantListFragment)
         }
     }
 }

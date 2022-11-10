@@ -9,5 +9,51 @@
         android:id="@+id/homeFragment"
         android:name="com.capstone.patech_android.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_plantListFragment"
+            app:destination="@id/plantListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_patechFragment"
+            app:destination="@id/patechFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/plantListFragment"
+        android:name="com.capstone.patech_android.ui.list.PlantListFragment"
+        android:label="PlantListFragment"
+        tools:layout="@layout/fragment_plant_list">
+        <action
+            android:id="@+id/action_plantListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.capstone.patech_android.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patechFragment"
+        android:name="com.capstone.patech_android.ui.patech.PatechFragment"
+        android:label="PatechFragment"
+        tools:layout="@layout/fragment_patech" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.capstone.patech_android.ui.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
