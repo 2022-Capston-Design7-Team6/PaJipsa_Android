@@ -1,4 +1,4 @@
-package com.capstone.patech_android.ui.home
+package com.capstone.patech_android.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,30 +6,30 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.patech_android.data.model.PlantListData
-import com.capstone.patech_android.databinding.ItemHomeListBinding
+import com.capstone.patech_android.databinding.ItemPlantListBinding
 
-class HomePlantListAdapter :
-    ListAdapter<PlantListData, HomePlantListAdapter.HomePlantViewHolder>(FriendDiffUtil()) {
+class PlantListAdapter :
+    ListAdapter<PlantListData, PlantListAdapter.PaListViewHolder>(FriendDiffUtil()) {
 
-    inner class HomePlantViewHolder(
-        private val binding: ItemHomeListBinding
+    inner class PaListViewHolder(
+        private val binding: ItemPlantListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: PlantListData) {
             binding.data = data
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomePlantViewHolder {
-        val binding: ItemHomeListBinding =
-            ItemHomeListBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PaListViewHolder {
+        val binding: ItemPlantListBinding =
+            ItemPlantListBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
-        return HomePlantViewHolder(binding)
+        return PaListViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomePlantViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PaListViewHolder, position: Int) {
         holder.onBind(getItem(position))
     }
 

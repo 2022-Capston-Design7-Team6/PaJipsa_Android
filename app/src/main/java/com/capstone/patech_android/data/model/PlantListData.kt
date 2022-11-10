@@ -6,4 +6,5 @@ data class PlantListData(
     val name: String,
     val harvestTime: String,
     val date: String,
+    val category: Int = 0,
 )
