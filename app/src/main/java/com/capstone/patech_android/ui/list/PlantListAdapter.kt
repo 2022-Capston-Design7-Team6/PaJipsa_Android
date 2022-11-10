@@ -10,7 +10,7 @@ import com.capstone.patech_android.databinding.ItemPlantListBinding
 import com.capstone.patech_android.util.navigateWithData
 
 class PlantListAdapter :
-    ListAdapter<PlantListData, PlantListAdapter.PaListViewHolder>(FriendDiffUtil()) {
+    ListAdapter<PlantListData, PlantListAdapter.PaListViewHolder>(PlantDiffUtil()) {
 
     inner class PaListViewHolder(
         private val binding: ItemPlantListBinding
@@ -39,7 +39,7 @@ class PlantListAdapter :
         holder.onBind(getItem(position))
     }
 
-    private class FriendDiffUtil : DiffUtil.ItemCallback<PlantListData>() {
+    private class PlantDiffUtil : DiffUtil.ItemCallback<PlantListData>() {
         override fun areItemsTheSame(oldItem: PlantListData, newItem: PlantListData): Boolean {
             return oldItem.id == newItem.id
         }

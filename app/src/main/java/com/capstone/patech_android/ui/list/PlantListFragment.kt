@@ -19,12 +19,12 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
         super.onViewCreated(view, savedInstanceState)
         plantListAdapter = PlantListAdapter()
         viewModel.fetchPlantList()
-        initHomeRVAdapter()
+        initPlantRVAdapter()
         setPlantList()
         addListener()
     }
 
-    private fun initHomeRVAdapter() {
+    private fun initPlantRVAdapter() {
         binding.rvList.adapter = plantListAdapter
     }
 
