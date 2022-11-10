@@ -15,9 +15,27 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
     override val viewModel: DetailViewModel by viewModels()
     private val args: DetailFragmentArgs by navArgs()
 
+    private lateinit var timelineAdapter: DetailTimelineAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        timelineAdapter = DetailTimelineAdapter()
+        viewModel.fetchTimelineList()
+        initRVAdapter()
+        setTimelineList()
         addListener()
+    }
+
+    private fun initRVAdapter() {
+        binding.rvTimeline.adapter = timelineAdapter
+    }
+
+    private fun setTimelineList() {
+        viewModel.timelineList.observe(viewLifecycleOwner) { list ->
+            list?.let {
+                with(timelineAdapter) { submitList(list) }
+            }
+        }
     }
 
     private fun addListener() {

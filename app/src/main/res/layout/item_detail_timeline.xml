@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="data"
+            type="com.capstone.patech_android.data.model.TimelineData" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,6 +21,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/noto_bold"
             android:includeFontPadding="false"
+            android:text="@{data.date}"
             android:textColor="@color/black"
             android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:includeFontPadding="false"
-            android:text="오늘은 분갈이도 3cm 수확도 하고 새로운 화분으로 분갈이도 해주었다"
+            android:text="@{data.record}"
             android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@id/iv_image"
