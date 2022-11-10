@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="25dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/ic_info_big" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:includeFontPadding="false"
+            android:text="파의 최초 촬영 시에는"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="14dp"
+                android:includeFontPadding="false"
+                android:text="화분을 평평한 곳에 놓아주세요"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/shape_black_oval_6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawablePadding="14dp"
+                android:includeFontPadding="false"
+                android:text="카메라를 수직으로 세워서 화분의 정면을 촬영해주세요"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
+                android:textColor="@color/black"
+                app:drawableStartCompat="@drawable/shape_black_oval_6" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:includeFontPadding="false"
+            android:text="*파가 서로 겹치지 않으면 좋아요\n*뒷배경에 초록색이 포함된 물체가 없으면 좋아요"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+            android:textColor="@color/gray_light2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/shape_green_fill_8"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingVertical="12dp"
+            android:text="다음"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Bold.12"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</layout>
