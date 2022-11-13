@@ -43,7 +43,7 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
         binding.icProfile.setOnClickListener {
             navigate(R.id.action_homeFragment_to_profileFragment)
         }
-        binding.btnPlantList.setOnClickListener {
+        binding.layoutListTitle.setOnClickListener {
             navigate(R.id.action_homeFragment_to_plantListFragment)
         }
         binding.layoutHarvest.setOnClickListener {

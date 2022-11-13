@@ -5,7 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
@@ -180,13 +181,14 @@
                         android:src="@drawable/img_arrow_green" />
                 </LinearLayout>
 
-
                 <LinearLayout
                     android:id="@+id/layout_list_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@id/layout_harvest"
                     app:layout_constraintStart_toStartOf="@id/layout_harvest"
                     app:layout_constraintTop_toBottomOf="@id/layout_harvest">
 
@@ -199,22 +201,22 @@
                         android:textColor="@color/black" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:includeFontPadding="false"
                         android:text="파"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                         android:textColor="@color/green_main" />
-                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/btn_plant_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_arrow_right"
-                    app:layout_constraintBottom_toBottomOf="@id/layout_list_title"
-                    app:layout_constraintEnd_toEndOf="@id/layout_harvest"
-                    app:layout_constraintTop_toTopOf="@id/layout_list_title" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_right"
+                        app:layout_constraintBottom_toBottomOf="@id/layout_list_title"
+                        app:layout_constraintEnd_toEndOf="@id/layout_harvest"
+                        app:layout_constraintTop_toTopOf="@id/layout_list_title" />
+                </LinearLayout>
 
                 <View
                     android:id="@+id/view2"
