@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import com.capstone.patech_android.BR
 import com.capstone.patech_android.R
 
 abstract class ViewModelFragment<VD : ViewDataBinding, VM : ViewModel>(
@@ -29,7 +30,7 @@ abstract class ViewModelFragment<VD : ViewDataBinding, VM : ViewModel>(
 
         return binding.also { viewDataBinding ->
             viewDataBinding.lifecycleOwner = this
-            // viewDataBinding.setVariable(BR.viewModel, viewModel)
+            viewDataBinding.setVariable(BR.viewModel, viewModel)
         }.root
     }
 
