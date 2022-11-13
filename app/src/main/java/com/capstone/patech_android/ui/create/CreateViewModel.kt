@@ -1,5 +1,6 @@
 package com.capstone.patech_android.ui.create
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -41,6 +42,28 @@ class CreateViewModel : ViewModel() {
             if (isNameNotBlank != null && isNameNotMultiple != null) {
                 this.value = isNameNotBlank && isNameNotMultiple
             }
+        }
+    }
+
+
+    // pot photo
+    private val _image = MutableLiveData<Uri?>()
+    val image: LiveData<Uri?> = _image
+
+
+    // pot info
+    val height = MutableLiveData("")
+
+    val ratio = MutableLiveData(0.0)
+
+    val canComplete = MediatorLiveData<Boolean>().apply {
+        addSource(
+            PairMediatorLiveData(height, ratio)
+        ) { triple ->
+            val height = triple.first!!
+            val ratio = triple.second!!
+            this.value = height.isNotBlank() && ratio == 0.0
+           // this.value = height.isNotBlank() && ratio != 0.0
         }
     }
 }

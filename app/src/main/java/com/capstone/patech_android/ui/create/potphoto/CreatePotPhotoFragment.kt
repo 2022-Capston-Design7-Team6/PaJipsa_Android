@@ -7,6 +7,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreatePotPhotoBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class CreatePotPhotoFragment : ViewModelFragment<FragmentCreatePotPhotoBinding, CreateViewModel>(
@@ -23,6 +24,15 @@ class CreatePotPhotoFragment : ViewModelFragment<FragmentCreatePotPhotoBinding, 
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.btnPhotoAdd.setOnClickListener {
+            PotPhotoInformationDialog { isConfirm ->
+                // isConfirm value 로 dialog 최초 1회만 보여지도록
+                // camera open
+            }.show(childFragmentManager, "dialog_info")
+        }
+        binding.tvNext.setOnClickListener {
+            navigate(R.id.action_createPotPhotoFragment_to_createPotInfoFragment)
         }
     }
 

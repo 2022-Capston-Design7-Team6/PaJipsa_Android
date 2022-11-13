@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.create.CreateViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,10 +37,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tv_complete"
+                    isAbleOrUnable="@{viewModel.canComplete}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:includeFontPadding="false"
+                    android:paddingVertical="8dp"
                     android:text="완료"
                     android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
                     android:textColor="@color/black_sub"
@@ -72,10 +82,12 @@
                         android:layout_weight="1"
                         android:background="@drawable/shape_green_stroke_2_radius_8"
                         android:hint="흙의 윗부분부터 파의 최고 높이"
+                        android:imeOptions="actionNone"
                         android:includeFontPadding="false"
                         android:inputType="number"
                         android:maxLength="3"
                         android:padding="15dp"
+                        android:text="@={viewModel.height}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray_light2" />

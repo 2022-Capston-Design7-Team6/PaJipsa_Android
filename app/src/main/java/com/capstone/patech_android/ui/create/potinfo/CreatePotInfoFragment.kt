@@ -7,6 +7,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreatePotInfoBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, CreateViewModel>(
@@ -22,6 +23,10 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.tvComplete.setOnClickListener {
+            // 서버 연동
+            navigate(R.id.actionCreatePotInfoFragmentToPlantListFragment)
         }
     }
 }
