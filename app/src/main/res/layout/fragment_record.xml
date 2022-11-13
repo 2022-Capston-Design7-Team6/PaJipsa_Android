@@ -94,7 +94,7 @@
                     app:layout_constraintStart_toStartOf="@id/layout_photo"
                     app:layout_constraintTop_toBottomOf="@id/layout_photo" />
 
-                <LinearLayout
+                <RadioGroup
                     android:id="@+id/layout_event"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -105,15 +105,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-                    <CheckBox
-                        android:id="@+id/cb_water"
+                    <RadioButton
+                        android:id="@+id/rb_water"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="12dp"
                         android:layout_weight="1"
-                        android:background="@drawable/shape_light_green_fill_8"
+                        android:background="@drawable/selector_radio_record_event_bg"
                         android:button="@null"
-                        android:drawableStart="@drawable/selector_checkbox_record_event_water"
+                        android:drawableStart="@drawable/selector_radio_record_event_water"
                         android:drawablePadding="8dp"
                         android:includeFontPadding="false"
                         android:minWidth="0dp"
@@ -122,16 +122,16 @@
                         android:paddingVertical="13dp"
                         android:text="물주기"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
-                        android:textColor="@color/selector_checkbox_record_event_text_color" />
+                        android:textColor="@color/selector_radio_record_event_text_color" />
 
-                    <CheckBox
-                        android:id="@+id/cb_trowel"
+                    <RadioButton
+                        android:id="@+id/rb_trowel"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/shape_light_green_fill_8"
+                        android:background="@drawable/selector_radio_record_event_bg"
                         android:button="@null"
-                        android:drawableStart="@drawable/selector_checkbox_record_event_trowel"
+                        android:drawableStart="@drawable/selector_radio_record_event_trowel"
                         android:drawablePadding="8dp"
                         android:includeFontPadding="false"
                         android:minWidth="0dp"
@@ -140,8 +140,8 @@
                         android:paddingVertical="13dp"
                         android:text="분갈이"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
-                        android:textColor="@color/selector_checkbox_record_event_text_color" />
-                </LinearLayout>
+                        android:textColor="@color/selector_radio_record_event_text_color" />
+                </RadioGroup>
 
                 <EditText
                     android:id="@+id/et_record"
