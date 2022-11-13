@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentPlantListBinding
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListViewModel>(
@@ -39,6 +40,9 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.btnNew.setOnClickListener {
+            navigate(R.id.action_plantListFragment_to_create_nav_graph)
         }
     }
 }

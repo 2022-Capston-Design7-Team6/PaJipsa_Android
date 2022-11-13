@@ -42,7 +42,14 @@
         android:id="@+id/createPotInfoFragment"
         android:name="com.capstone.patech_android.ui.create.potinfo.CreatePotInfoFragment"
         android:label="CreatePotInfoFragment"
-        tools:layout="@layout/fragment_create_pot_info" />
+        tools:layout="@layout/fragment_create_pot_info">
+
+        <action
+            android:id="@+id/actionCreatePotInfoFragmentToPlantListFragment"
+            app:destination="@id/plantListFragment"
+            app:popUpTo="@id/createCategoryFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <dialog
         android:id="@+id/potPhotoInformationDialog"

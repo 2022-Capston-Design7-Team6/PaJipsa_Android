@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_plantListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_plantListFragment_to_create_nav_graph"
+            app:destination="@id/create_nav_graph" />
     </fragment>
 
     <fragment
@@ -101,4 +104,6 @@
             android:id="@+id/action_photoModeDialog_to_recordCameraFragment"
             app:destination="@id/recordCameraFragment" />
     </dialog>
+
+    <include app:graph="@navigation/create_nav_graph" />
 </navigation>
