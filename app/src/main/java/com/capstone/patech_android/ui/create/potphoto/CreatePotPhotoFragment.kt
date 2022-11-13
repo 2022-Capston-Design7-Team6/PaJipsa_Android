@@ -17,11 +17,22 @@ class CreatePotPhotoFragment : ViewModelFragment<FragmentCreatePotPhotoBinding, 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListener()
+        setBtnNextEnable()
     }
 
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
         }
+    }
+
+    private fun setBtnNextEnable() {
+//        viewModel.image.observe(viewLifecycleOwner) { image ->
+//            if (image != null) {
+//                binding.tvNext.bindTextAbleOrUnable(true)
+//            } else {
+//                binding.tvNext.bindTextAbleOrUnable(false)
+//            }
+//        }
     }
 }

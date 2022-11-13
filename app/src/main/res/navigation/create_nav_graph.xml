@@ -33,9 +33,6 @@
         <action
             android:id="@+id/action_createPotPhotoFragment_to_createPotInfoFragment"
             app:destination="@id/createPotInfoFragment" />
-        <action
-            android:id="@+id/action_createPotPhotoFragment_to_potPhotoInformationDialog"
-            app:destination="@id/potPhotoInformationDialog" />
     </fragment>
 
     <fragment
@@ -50,10 +47,4 @@
             app:popUpTo="@id/createCategoryFragment"
             app:popUpToInclusive="true" />
     </fragment>
-
-    <dialog
-        android:id="@+id/potPhotoInformationDialog"
-        android:name="com.capstone.patech_android.ui.create.potphoto.PotPhotoInformationDialog"
-        android:label="PotPhotoInformationDialog"
-        tools:layout="@layout/dialog_pot_photo_infomation" />
 </navigation>
