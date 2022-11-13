@@ -11,6 +11,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:overScrollMode="never"
+            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +152,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
-                    android:id="@+id/layout_write"
+                    android:id="@+id/layout_harvest"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -169,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:includeFontPadding="false"
-                        android:text="파테크 일지 작성하기"
+                        android:text="오늘의 파테크 수확하기"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
                         android:textColor="@color/green_main" />
 
@@ -186,8 +187,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
                     android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="@id/layout_write"
-                    app:layout_constraintTop_toBottomOf="@id/layout_write">
+                    app:layout_constraintStart_toStartOf="@id/layout_harvest"
+                    app:layout_constraintTop_toBottomOf="@id/layout_harvest">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -212,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_arrow_right"
                     app:layout_constraintBottom_toBottomOf="@id/layout_list_title"
-                    app:layout_constraintEnd_toEndOf="@id/layout_write"
+                    app:layout_constraintEnd_toEndOf="@id/layout_harvest"
                     app:layout_constraintTop_toTopOf="@id/layout_list_title" />
 
                 <View

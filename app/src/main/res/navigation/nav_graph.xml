@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_harvestFragment"
+            app:destination="@id/harvestFragment" />
     </fragment>
 
     <fragment
@@ -43,6 +46,12 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_harvestFragment"
+            app:destination="@id/harvestFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
     </fragment>
 
     <fragment
@@ -56,4 +65,40 @@
         android:name="com.capstone.patech_android.ui.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/harvestFragment"
+        android:name="com.capstone.patech_android.ui.harvest.HarvestFragment"
+        android:label="HarvestFragment"
+        tools:layout="@layout/fragment_harvest">
+        <action
+            android:id="@+id/action_harvestFragment_to_photoModeDialog"
+            app:destination="@id/photoModeDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.capstone.patech_android.ui.record.RecordFragment"
+        android:label="RecordFragment"
+        tools:layout="@layout/fragment_record">
+        <action
+            android:id="@+id/action_recordFragment_to_photoModeDialog"
+            app:destination="@id/photoModeDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recordCameraFragment"
+        android:name="com.capstone.patech_android.ui.record.RecordCameraFragment"
+        android:label="RecordCameraFragment"
+        tools:layout="@layout/fragment_record_camera" />
+
+    <dialog
+        android:id="@+id/photoModeDialog"
+        android:name="com.capstone.patech_android.ui.dialog.PhotoModeDialog"
+        android:label="PhotoModeDialog"
+        tools:layout="@layout/dialog_photo_mode">
+        <action
+            android:id="@+id/action_photoModeDialog_to_recordCameraFragment"
+            app:destination="@id/recordCameraFragment" />
+    </dialog>
 </navigation>

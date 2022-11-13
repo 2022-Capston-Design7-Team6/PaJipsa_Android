@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_nav_graph"
+    app:startDestination="@id/createCategoryFragment">
+
+    <fragment
+        android:id="@+id/createCategoryFragment"
+        android:name="com.capstone.patech_android.ui.create.category.CreateCategoryFragment"
+        android:label="CreateCategoryFragment"
+        tools:layout="@layout/fragment_create_category">
+        <action
+            android:id="@+id/action_createCategoryFragment_to_createNameFragment"
+            app:destination="@id/createNameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createNameFragment"
+        android:name="com.capstone.patech_android.ui.create.name.CreateNameFragment"
+        android:label="CreateNameFragment"
+        tools:layout="@layout/fragment_create_name">
+        <action
+            android:id="@+id/action_createNameFragment_to_createPotPhotoFragment"
+            app:destination="@id/createPotPhotoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPotPhotoFragment"
+        android:name="com.capstone.patech_android.ui.create.potphoto.CreatePotPhotoFragment"
+        android:label="CreatePotPhotoFragment"
+        tools:layout="@layout/fragment_create_pot_photo">
+        <action
+            android:id="@+id/action_createPotPhotoFragment_to_createPotInfoFragment"
+            app:destination="@id/createPotInfoFragment" />
+        <action
+            android:id="@+id/action_createPotPhotoFragment_to_potPhotoInformationDialog"
+            app:destination="@id/potPhotoInformationDialog" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createPotInfoFragment"
+        android:name="com.capstone.patech_android.ui.create.potinfo.CreatePotInfoFragment"
+        android:label="CreatePotInfoFragment"
+        tools:layout="@layout/fragment_create_pot_info" />
+
+    <dialog
+        android:id="@+id/potPhotoInformationDialog"
+        android:name="com.capstone.patech_android.ui.create.potphoto.PotPhotoInformationDialog"
+        android:label="PotPhotoInformationDialog"
+        tools:layout="@layout/dialog_pot_photo_infomation" />
+</navigation>

@@ -7,6 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentDetailBinding
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>(
@@ -41,6 +42,12 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.btnHarvest.setOnClickListener {
+            navigate(R.id.action_detailFragment_to_harvestFragment)
+        }
+        binding.btnWrite.setOnClickListener {
+            navigate(R.id.action_detailFragment_to_recordFragment)
         }
     }
 }
