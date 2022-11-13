@@ -7,6 +7,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreateCategoryBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class CreateCategoryFragment : ViewModelFragment<FragmentCreateCategoryBinding, CreateViewModel>(
@@ -22,6 +23,16 @@ class CreateCategoryFragment : ViewModelFragment<FragmentCreateCategoryBinding, 
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.layoutGreenOnion.navigateToNextStep(0)
+        binding.layoutChive.navigateToNextStep(1)
+        binding.layoutOnion.navigateToNextStep(2)
+    }
+
+    private fun View.navigateToNextStep(category: Int) {
+        this.setOnClickListener {
+            viewModel.setCategory(category)
+            navigate(R.id.action_createCategoryFragment_to_createNameFragment)
         }
     }
 }

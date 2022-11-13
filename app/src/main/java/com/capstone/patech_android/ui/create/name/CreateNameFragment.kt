@@ -7,6 +7,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreateNameBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class CreateNameFragment : ViewModelFragment<FragmentCreateNameBinding, CreateViewModel>(
@@ -16,12 +17,36 @@ class CreateNameFragment : ViewModelFragment<FragmentCreateNameBinding, CreateVi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         addListener()
+    }
+
+    private fun initView() {
+        viewModel.selectedCategory.observe(viewLifecycleOwner) {
+            binding.tvTitle.text = when (it) {
+                0 -> "대파의"
+                1 -> "쪽파의"
+                else -> "양파의"
+            }
+        }
+
+        viewModel.isNameNotBlank.observe(viewLifecycleOwner) { isNotBlank ->
+            when (isNotBlank) {
+                true -> binding.btnNameCheck.setImageResource(R.drawable.ic_check_green)
+                false -> binding.btnNameCheck.setImageResource(R.drawable.ic_check_gray)
+            }
+        }
     }
 
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.btnNameCheck.setOnClickListener {
+            // 닉네임 중복 확인 서버 api
+        }
+        binding.tvNext.setOnClickListener {
+            navigate(R.id.action_createNameFragment_to_createPotPhotoFragment)
         }
     }
 }
