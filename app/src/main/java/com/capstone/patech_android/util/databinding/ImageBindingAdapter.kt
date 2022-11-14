@@ -1,5 +1,6 @@
 package com.capstone.patech_android.util.databinding
 
+import android.net.Uri
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import coil.load
@@ -11,7 +12,7 @@ fun ImageView.imageCoil(url: String?) {
     url?.let {
         load(url) {
             placeholder(R.color.gray_light)
-            transformations(RoundedCornersTransformation(radius = 6F))
+            transformations(RoundedCornersTransformation(radius = 8F))
         }
     }
 }
@@ -21,7 +22,17 @@ fun ImageView.imageCoil(url: Int?) {
     url?.let {
         load(url) {
             placeholder(R.color.gray_light)
-            transformations(RoundedCornersTransformation(radius = 6F))
+            transformations(RoundedCornersTransformation(radius = 8F))
+        }
+    }
+}
+
+@BindingAdapter("imageCoil")
+fun ImageView.imageCoil(url: Uri?) {
+    url?.let {
+        load(url) {
+            placeholder(R.color.gray_light)
+            transformations(RoundedCornersTransformation(radius = 8F))
         }
     }
 }

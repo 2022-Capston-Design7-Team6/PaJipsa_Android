@@ -28,10 +28,10 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
             popBackStack()
         }
         binding.layoutPhotoBefore.setOnClickListener {
-            navigate(R.id.action_recordFragment_to_photoModeDialog)
+            navigate(R.id.action_harvestFragment_to_photoModeDialog)
         }
         binding.layoutPhotoAfter.setOnClickListener {
-            navigate(R.id.action_recordFragment_to_photoModeDialog)
+            navigate(R.id.action_harvestFragment_to_photoModeDialog)
         }
     }
 }

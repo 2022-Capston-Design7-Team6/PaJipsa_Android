@@ -1,12 +1,17 @@
 package com.capstone.patech_android.ui.record
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentRecordBinding
-import com.capstone.patech_android.util.navigate
+import com.capstone.patech_android.ui.dialog.PhotoModeDialog.Companion.RECORD_CAMERA
+import com.capstone.patech_android.ui.record.RecordCameraFragment.Companion.SAVED_URI
+import com.capstone.patech_android.util.databinding.imageCoil
+import com.capstone.patech_android.util.navigateWithData
 import com.capstone.patech_android.util.popBackStack
 
 class RecordFragment : ViewModelFragment<FragmentRecordBinding, RecordViewModel>(
@@ -17,11 +22,14 @@ class RecordFragment : ViewModelFragment<FragmentRecordBinding, RecordViewModel>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListener()
+        getSavedUri()
     }
 
     private fun addListener() {
         binding.layoutPhoto.setOnClickListener {
-            navigate(R.id.action_recordFragment_to_photoModeDialog)
+            navigateWithData(
+                RecordFragmentDirections.actionRecordFragmentToPhotoModeDialog(RECORD_CAMERA)
+            )
         }
         binding.btnBack.setOnClickListener {
             popBackStack()
@@ -30,5 +38,12 @@ class RecordFragment : ViewModelFragment<FragmentRecordBinding, RecordViewModel>
             // 서버 연동
             popBackStack()
         }
+    }
+
+    private fun getSavedUri() {
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Uri>(SAVED_URI)
+            ?.observe(viewLifecycleOwner) {
+                binding.ivPhoto.imageCoil(it)
+            }
     }
 }
