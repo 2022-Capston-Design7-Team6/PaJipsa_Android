@@ -1,21 +1,33 @@
 package com.capstone.patech_android.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.capstone.patech_android.data.model.PlantListData
+import androidx.lifecycle.viewModelScope
+import com.capstone.patech_android.data.api.ServiceBuilder
+import com.capstone.patech_android.data.response.HomePlantListData
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class HomeViewModel : ViewModel() {
+    val nickname = MutableLiveData("")
+    val patechValue = MutableLiveData("")
 
-    private val _plantList = MutableLiveData<List<PlantListData>>()
-    val plantList: LiveData<List<PlantListData>> = _plantList
+    private val _plantList = MutableLiveData<List<HomePlantListData>>()
+    val plantList: LiveData<List<HomePlantListData>> = _plantList
 
     fun fetchPlantList() {
-        _plantList.value = listOf(
-            PlantListData(1, name = "양파1", harvestTime = "2주후 수확 예정", date = "D+10"),
-            PlantListData(2, name = "양파2",harvestTime = "2주후 수확 예정", date = "D+10"),
-            PlantListData(3, name = "양파3",harvestTime = "2주후 수확 예정", date = "D+10"),
-            PlantListData(4, name = "양파4",harvestTime = "2주후 수확 예정", date = "D+10"),
-        )
+        viewModelScope.launch {
+            try {
+                val response = ServiceBuilder.homeService.getHome()
+                _plantList.postValue(response.plantList)
+                patechValue.value = response.patechValue
+                nickname.value = response.nickname
+            } catch (e: HttpException) {
+                _plantList.postValue(listOf())
+                Log.d("homeService", e.message().toString())
+            }
+        }
     }
 }

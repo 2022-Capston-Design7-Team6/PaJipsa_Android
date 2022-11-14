@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.home.HomeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,7 +58,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="28dp"
                         android:includeFontPadding="false"
-                        android:text="가은"
+                        android:text="@{viewModel.nickname}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                         android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
@@ -91,25 +98,15 @@
 
                     <TextView
                         android:id="@+id/tv_value"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
-                        android:text="치킨 1마리🍗"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="26dp"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                         android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="@id/tv_nickname"
                         app:layout_constraintTop_toBottomOf="@id/tv_patech" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:includeFontPadding="false"
-                        android:text="만큼을 수확했어요!"
-                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toEndOf="@id/tv_value"
-                        app:layout_constraintTop_toTopOf="@id/tv_value" />
-
 
                     <View
                         android:id="@+id/view"

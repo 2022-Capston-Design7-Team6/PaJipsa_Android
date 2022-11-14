@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.model.PlantListData" />
+            type="com.capstone.patech_android.data.response.HomePlantListData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +41,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:includeFontPadding="false"
-                android:text="@{data.name}"
+                android:text="@{data.plantInfo.plantName}"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
                 android:textColor="@color/black"
                 tools:text="양파파" />
@@ -50,18 +50,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:text="@{data.date}"
+                android:text="D+"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@{String.valueOf(data.plantInfo.birthDay)}"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
                 android:textColor="@color/black"
-                tools:text="D+80" />
+                tools:text="80" />
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_harvest"
+            isVisibleOrInvisible="@{data.plantInfo.harvestTime != null}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:includeFontPadding="false"
-            android:text="@{data.harvestTime}"
             android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@id/layout_name"
