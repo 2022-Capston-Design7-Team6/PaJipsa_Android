@@ -103,6 +103,10 @@
         <action
             android:id="@+id/action_photoModeDialog_to_recordCameraFragment"
             app:destination="@id/recordCameraFragment" />
+        <argument
+            android:name="fromView"
+            android:defaultValue="0"
+            app:argType="integer" />
     </dialog>
 
     <include app:graph="@navigation/create_nav_graph" />
