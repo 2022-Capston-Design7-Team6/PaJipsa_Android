@@ -2,6 +2,7 @@ package com.capstone.patech_android.ui.create.potinfo
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.navGraphViewModels
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
@@ -27,6 +28,7 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
         binding.tvComplete.setOnClickListener {
             // 서버 연동
             navigate(R.id.actionCreatePotInfoFragmentToPlantListFragment)
+            Toast.makeText(context, "새로운 파가 등록되었어요!", Toast.LENGTH_SHORT).show()
         }
     }
 }
