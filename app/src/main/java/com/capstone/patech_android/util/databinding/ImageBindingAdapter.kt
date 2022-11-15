@@ -12,7 +12,7 @@ fun ImageView.imageCoil(url: String?) {
     url?.let {
         load(url) {
             placeholder(R.color.gray_light)
-            transformations(RoundedCornersTransformation(radius = 8F))
+            transformations(RoundedCornersTransformation(radius = 20F))
         }
     }
 }
@@ -22,7 +22,7 @@ fun ImageView.imageCoil(url: Int?) {
     url?.let {
         load(url) {
             placeholder(R.color.gray_light)
-            transformations(RoundedCornersTransformation(radius = 8F))
+            transformations(RoundedCornersTransformation(radius = 20F))
         }
     }
 }
@@ -32,7 +32,7 @@ fun ImageView.imageCoil(url: Uri?) {
     url?.let {
         load(url) {
             placeholder(R.color.gray_light)
-            transformations(RoundedCornersTransformation(radius = 8F))
+            transformations(RoundedCornersTransformation(radius = 20F))
         }
     }
 }
