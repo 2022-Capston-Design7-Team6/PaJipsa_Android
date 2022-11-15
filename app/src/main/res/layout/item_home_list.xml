@@ -16,6 +16,7 @@
 
         <ImageView
             android:id="@+id/iv_image"
+            imageCoil="@{data.image}"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginBottom="12dp"
@@ -66,13 +67,12 @@
 
         <TextView
             android:id="@+id/tv_harvest"
-            isVisibleOrInvisible="@{data.plantInfo.harvestTime != null}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:includeFontPadding="false"
             android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
-            android:textColor="@color/black"
+            android:textColor="@color/black_sub"
             app:layout_constraintStart_toStartOf="@id/layout_name"
             app:layout_constraintTop_toBottomOf="@id/layout_name"
             tools:text="2주 후 수확예정" />

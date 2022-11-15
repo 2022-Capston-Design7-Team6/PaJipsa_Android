@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.capstone.patech_android.data.response.HomePlantListData
 import com.capstone.patech_android.databinding.ItemHomeListBinding
 import com.capstone.patech_android.util.navigateWithData
+import com.capstone.patech_android.util.timeFormatToCalender
+import java.util.*
 
 class HomePlantListAdapter :
     ListAdapter<HomePlantListData, HomePlantListAdapter.HomePlantViewHolder>(PlantDiffUtil()) {
@@ -17,11 +19,19 @@ class HomePlantListAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: HomePlantListData) {
             binding.data = data
-            // TODO: harvestTime format 2022-11-14T10:07:48.943782Z
-            binding.tvHarvest.text = data.plantInfo.harvestTime
+            val harvestTime = data.plantInfo.harvestTime
+            if(harvestTime != null) {
+                val time = timeFormatToCalender(harvestTime)
+                if (time != null) {
+                    val month = time.get(Calendar.MONTH) + 1
+                    val date = time.get(Calendar.DATE)
+                    val string = "수확 예정일 $month.$date"
+                    binding.tvHarvest.text = string
+                }
+            }
             binding.root.setOnClickListener {
                 it.navigateWithData(
-                    HomeFragmentDirections.actionHomeFragmentToDetailFragment(data.id)
+                    HomeFragmentDirections.actionHomeFragmentToDetailFragment(data.plantInfo.id)
                 )
             }
         }
