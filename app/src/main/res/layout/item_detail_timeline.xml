@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.model.TimelineData" />
+            type="com.capstone.patech_android.data.response.TimeLine" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,6 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/noto_bold"
             android:includeFontPadding="false"
-            android:text="@{data.date}"
             android:textColor="@color/black"
             android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +28,7 @@
             tools:text="10.21" />
 
         <ImageView
+            imageCoil="@{data.image}"
             android:id="@+id/iv_image"
             android:layout_width="0dp"
             android:layout_height="140dp"
@@ -39,18 +39,23 @@
             app:layout_constraintStart_toEndOf="@id/tv_date"
             app:layout_constraintTop_toTopOf="@id/tv_date" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_category"
+        <TextView
+            android:id="@+id/tv_category"
+            isVisibleOrGone="@{data.event != null}"
+            setEventText="@{data.event}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:background="@drawable/shape_black_fill_16"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Medium.12"
+            android:textColor="@color/green_main"
             app:layout_constraintStart_toStartOf="@id/iv_image"
             app:layout_constraintTop_toBottomOf="@id/iv_image"
-            tools:itemCount="3"
-            tools:listitem="@layout/item_detail_timeline_category" />
+            tools:text="분갈이" />
 
         <TextView
             android:id="@+id/tv_record"
@@ -63,7 +68,7 @@
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@id/iv_image"
             app:layout_constraintStart_toStartOf="@id/iv_image"
-            app:layout_constraintTop_toBottomOf="@id/rv_category" />
+            app:layout_constraintTop_toBottomOf="@id/tv_category" />
 
         <View
             android:layout_width="match_parent"

@@ -1,34 +1,44 @@
 package com.capstone.patech_android.ui.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.capstone.patech_android.data.model.CategoryData
-import com.capstone.patech_android.data.model.TimelineData
+import androidx.lifecycle.viewModelScope
+import com.capstone.patech_android.data.api.ServiceBuilder
+import com.capstone.patech_android.data.response.TimeLine
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class DetailViewModel : ViewModel() {
 
-    private val _timelineList = MutableLiveData<List<TimelineData>>()
-    val timelineList: LiveData<List<TimelineData>> = _timelineList
+    val plantName = MutableLiveData("")
+    val plantCategory = MutableLiveData(0)
 
-    fun fetchTimelineList() {
-        _timelineList.value = listOf(
-            TimelineData(
-                1, record = "양파1", date = "D+10",
-                category = arrayListOf(CategoryData("분갈이")),
-            ),
-            TimelineData(
-                2, record = "양파2", date = "D+10",
-                category = arrayListOf(CategoryData("분갈이"), CategoryData("수확"))
-            ),
-            TimelineData(
-                3, record = "양파3", date = "D+10",
-                category = arrayListOf(CategoryData("분갈이"), CategoryData("물주기")),
-            ),
-            TimelineData(
-                4, record = "양파4", date = "D+10",
-                category = arrayListOf(CategoryData("분갈이")),
-            ),
-        )
+    private val _plantHarvest = MutableLiveData<String?>()
+    val plantHarvest: LiveData<String?> = _plantHarvest
+
+    private val _birthDate = MutableLiveData<Int>()
+    val birthDate: LiveData<Int> = _birthDate
+
+    private val _timelineList = MutableLiveData<List<TimeLine>>()
+    val timelineList: LiveData<List<TimeLine>> = _timelineList
+
+    fun fetchDetailData(plantId: Int) {
+        viewModelScope.launch {
+            try {
+                val response = ServiceBuilder.plantService.getPlantDetail(
+                    plantId
+                )
+                _timelineList.postValue(response.timeLineList)
+                plantName.value = response.plantInfo.plantName
+                plantCategory.value = response.plantInfo.plantCategory
+                _plantHarvest.value = response.plantInfo.harvestTime
+                _birthDate.value = response.plantInfo.birthDay
+            } catch (e: HttpException) {
+                _timelineList.postValue(listOf())
+                Log.d("fetchDetailData", e.message().toString())
+            }
+        }
     }
 }

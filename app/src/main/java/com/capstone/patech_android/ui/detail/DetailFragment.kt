@@ -9,6 +9,8 @@ import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentDetailBinding
 import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
+import com.capstone.patech_android.util.timeFormatToCalender
+import java.util.*
 
 class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>(
     R.layout.fragment_detail
@@ -21,10 +23,12 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         timelineAdapter = DetailTimelineAdapter()
-        viewModel.fetchTimelineList()
+        viewModel.fetchDetailData(args.plantId)
         initRVAdapter()
         setTimelineList()
         addListener()
+        setHarvestTimeText()
+        setBirthDateText()
     }
 
     private fun initRVAdapter() {
@@ -48,6 +52,31 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
         }
         binding.btnWrite.setOnClickListener {
             navigate(R.id.action_detailFragment_to_recordFragment)
+        }
+    }
+
+    private fun setBirthDateText() {
+        viewModel.birthDate.observe(viewLifecycleOwner) {
+            // TODO : 등록날짜 필요
+            // TODO : 물주기 레이아웃 제거
+            val birth = "(D+$it)"
+            binding.tvBirth.text = birth
+        }
+    }
+
+    private fun setHarvestTimeText() {
+        viewModel.plantHarvest.observe(viewLifecycleOwner) {
+            if (it == null) {
+                binding.tvHarvest.text ="더 많은 파 일지가 필요해요!"
+            } else {
+                val time = timeFormatToCalender(it)
+                if (time != null) {
+                    val month = time.get(Calendar.MONTH) + 1
+                    val date = time.get(Calendar.DATE)
+                    val string = "${month}월 ${date}일"
+                    binding.tvHarvest.text = string
+                }
+            }
         }
     }
 }

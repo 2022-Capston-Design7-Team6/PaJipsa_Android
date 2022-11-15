@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.detail.DetailViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -82,12 +89,12 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
+                        setCategoryImg22="@{viewModel.plantCategory}"
                         android:id="@+id/iv_category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="18dp"
-                        android:src="@drawable/ic_onion_22"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,7 +104,7 @@
                         android:layout_marginStart="6dp"
                         android:layout_marginTop="14dp"
                         android:includeFontPadding="false"
-                        android:text="양파양파"
+                        android:text="@{viewModel.plantName}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                         android:textColor="@color/green_main"
                         app:layout_constraintStart_toEndOf="@id/iv_category"
@@ -125,6 +132,7 @@
                             android:textColor="@color/green_dark" />
 
                         <TextView
+                            android:id="@+id/tv_birth"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="19dp"
@@ -144,6 +152,7 @@
                             android:textColor="@color/green_dark" />
 
                         <TextView
+                            android:id="@+id/tv_harvest"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="19dp"
