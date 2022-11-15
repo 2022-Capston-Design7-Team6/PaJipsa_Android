@@ -103,6 +103,9 @@
         <action
             android:id="@+id/action_photoModeDialog_to_recordCameraFragment"
             app:destination="@id/recordCameraFragment" />
+        <action
+            android:id="@+id/action_photoModeDialog_to_afterCameraFragment"
+            app:destination="@id/afterCameraFragment" />
         <argument
             android:name="fromView"
             android:defaultValue="0"
@@ -110,4 +113,10 @@
     </dialog>
 
     <include app:graph="@navigation/create_nav_graph" />
+
+    <fragment
+        android:id="@+id/afterCameraFragment"
+        android:name="com.capstone.patech_android.ui.harvest.aftercamera.AfterCameraFragment"
+        android:label="AfterCameraFragment"
+        tools:layout="@layout/fragment_harvest_after_camera" />
 </navigation>

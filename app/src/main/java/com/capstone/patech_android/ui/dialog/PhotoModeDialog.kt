@@ -1,7 +1,6 @@
 package com.capstone.patech_android.ui.dialog
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +30,9 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
     private fun openCamera() {
         binding.btnCamera.setOnClickListener {
             when (args.fromView) {
-                DEFAULT_CAMERA -> Log.d("defaultCamera", "open")
+                DEFAULT_CAMERA -> navigate(R.id.action_photoModeDialog_to_recordCameraFragment)
                 RECORD_CAMERA -> navigate(R.id.action_photoModeDialog_to_recordCameraFragment)
+                HARVEST_AFTER_CAMERA -> navigate(R.id.action_photoModeDialog_to_afterCameraFragment)
             }
         }
     }
@@ -46,5 +46,6 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
     companion object {
         const val DEFAULT_CAMERA = 0
         const val RECORD_CAMERA = 1
+        const val HARVEST_AFTER_CAMERA = 2
     }
 }
