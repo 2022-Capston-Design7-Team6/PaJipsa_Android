@@ -52,11 +52,22 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
             list?.let {
                 with(plantAdapter) { submitList(list) }
             }
+            if (list.size >= 2) {
+                val firstPlant = list.first().plantInfo.plantName
+                val secondPlant = list.get(1).plantInfo.plantName
+                val plantsString = "$firstPlant / $secondPlant"
+                binding.tvPlants.text = plantsString
+            } else if (list.size == 1) {
+                val firstPlant = list.first().plantInfo.plantName
+                binding.tvPlants.text = firstPlant
+            } else {
+                binding.tvPlants.visibility = View.GONE
+            }
         }
     }
 
     private fun addListener() {
-        binding.layoutRank.setOnClickListener {
+        binding.layoutPatech.setOnClickListener {
             navigate(R.id.action_homeFragment_to_patechFragment)
         }
         binding.icProfile.setOnClickListener {
