@@ -23,6 +23,7 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
         initPlantRVAdapter()
         setPlantList()
         addListener()
+        setCategoryFilterChangeList()
     }
 
     private fun initPlantRVAdapter() {
@@ -30,9 +31,20 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
     }
 
     private fun setPlantList() {
-        viewModel.plantList.observe(viewLifecycleOwner) { list ->
+        viewModel.plantRVList.observe(viewLifecycleOwner) { list ->
             list?.let {
                 with(plantListAdapter) { submitList(list) }
+            }
+        }
+    }
+
+    private fun setCategoryFilterChangeList() {
+        binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when(checkedId) {
+                R.id.radio_all -> viewModel.setPlantRVList()
+                R.id.radio_green_onion -> viewModel.setPlantRVList(0)
+                R.id.radio_chive -> viewModel.setPlantRVList(1)
+                R.id.radio_onion -> viewModel.setPlantRVList(2)
             }
         }
     }

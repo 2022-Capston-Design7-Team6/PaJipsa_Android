@@ -7,9 +7,9 @@ import com.capstone.patech_android.R
 @BindingAdapter("setCategoryImg22")
 fun ImageView.bindCategoryImg22(category: Int) {
     when (category) {
-        1 -> this.setImageResource(R.drawable.ic_green_onion_22)
+        0 -> this.setImageResource(R.drawable.ic_green_onion_22)
         2 -> this.setImageResource(R.drawable.ic_onion_22)
-        3 -> this.setImageResource(R.drawable.ic_chive_22)
+        1 -> this.setImageResource(R.drawable.ic_chive_22)
         else -> this.setImageResource(R.drawable.ic_green_onion_22)
     }
 }

@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.list.PlantListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -137,6 +144,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view"
             tools:listitem="@layout/item_plant_list" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/emptyView"
+            isVisibleOrGone="@{viewModel.showEmptyView}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="파가 존재하지 않아요\n새로운 파를 등록해 보세요!"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+            android:textColor="@color/black_sub"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
