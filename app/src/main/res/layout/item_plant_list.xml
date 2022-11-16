@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.model.PlantListData" />
+            type="com.capstone.patech_android.data.response.PlantListData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,9 +38,10 @@
 
             <ImageView
                 android:id="@+id/iv_image"
+                imageCoil="@{data.image}"
                 android:layout_width="76dp"
                 android:layout_height="76dp"
-                android:background="@color/gray_light" />
+                android:background="@drawable/shape_light_gray_fill_8" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,7 +51,7 @@
             android:layout_marginStart="11dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/layout_image"
-            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            app:layout_constraintEnd_toStartOf="@id/layout_date"
             app:layout_constraintStart_toEndOf="@id/layout_image"
             app:layout_constraintTop_toTopOf="@id/layout_image">
 
@@ -58,7 +59,7 @@
                 android:id="@+id/iv_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:setCategoryImg22="@{data.category}"
+                app:setCategoryImg22="@{data.plantInfo.plantCategory}"
                 tools:src="@drawable/ic_onion_22" />
 
             <TextView
@@ -66,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:includeFontPadding="false"
-                android:text="@{data.name}"
+                android:text="@{data.plantInfo.plantName}"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
                 android:textColor="@color/black"
                 tools:text="양파파" />
@@ -76,23 +77,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:includeFontPadding="false"
-                android:text="@{data.harvestTime}"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
-                android:textColor="@color/black"
+                android:textColor="@color/black_sub"
                 tools:text="2주 후 수확예정" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_date"
+        <LinearLayout
+            android:id="@+id/layout_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:includeFontPadding="false"
-            android:text="@{data.date}"
-            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
-            android:textColor="@color/black"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/layout_image"
-            tools:text="D+80" />
+            app:layout_constraintTop_toTopOf="@id/layout_image">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="D+"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@{String.valueOf(data.plantInfo.birthDay)}"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                android:textColor="@color/black"
+                tools:text="80" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface HomeService {
 
-    @GET("/homepage")
+    @GET("/homepage/")
     suspend fun getHome(): HomeResponse
 
     @GET("/rank/")

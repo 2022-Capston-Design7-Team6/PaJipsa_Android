@@ -5,19 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.patech_android.data.response.HomePlantListData
+import com.capstone.patech_android.data.response.PlantListData
 import com.capstone.patech_android.databinding.ItemHomeListBinding
 import com.capstone.patech_android.util.navigateWithData
 import com.capstone.patech_android.util.timeFormatToCalender
 import java.util.*
 
 class HomePlantListAdapter :
-    ListAdapter<HomePlantListData, HomePlantListAdapter.HomePlantViewHolder>(PlantDiffUtil()) {
+    ListAdapter<PlantListData, HomePlantListAdapter.HomePlantViewHolder>(PlantDiffUtil()) {
 
     inner class HomePlantViewHolder(
         private val binding: ItemHomeListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: HomePlantListData) {
+        fun onBind(data: PlantListData) {
             binding.data = data
             val harvestTime = data.plantInfo.harvestTime
             if (harvestTime != null) {
@@ -55,17 +55,17 @@ class HomePlantListAdapter :
         holder.onBind(getItem(position))
     }
 
-    private class PlantDiffUtil : DiffUtil.ItemCallback<HomePlantListData>() {
+    private class PlantDiffUtil : DiffUtil.ItemCallback<PlantListData>() {
         override fun areItemsTheSame(
-            oldItem: HomePlantListData,
-            newItem: HomePlantListData
+            oldItem: PlantListData,
+            newItem: PlantListData
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: HomePlantListData,
-            newItem: HomePlantListData
+            oldItem: PlantListData,
+            newItem: PlantListData
         ): Boolean {
             return oldItem == newItem
         }

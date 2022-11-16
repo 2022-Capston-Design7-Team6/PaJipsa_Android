@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.capstone.patech_android.data.api.ServiceBuilder
-import com.capstone.patech_android.data.response.HomePlantListData
+import com.capstone.patech_android.data.response.PlantListData
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -14,8 +14,8 @@ class HomeViewModel : ViewModel() {
     val nickname = MutableLiveData("")
     val patechValue = MutableLiveData("")
 
-    private val _plantList = MutableLiveData<List<HomePlantListData>>()
-    val plantList: LiveData<List<HomePlantListData>> = _plantList
+    private val _plantList = MutableLiveData<List<PlantListData>>()
+    val plantList: LiveData<List<PlantListData>> = _plantList
 
     fun fetchPlantList() {
         viewModelScope.launch {

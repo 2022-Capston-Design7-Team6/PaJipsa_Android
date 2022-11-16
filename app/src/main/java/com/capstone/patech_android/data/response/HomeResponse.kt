@@ -9,10 +9,10 @@ data class HomeResponse(
     @SerializedName("patech_indicator")
     val patechValue: String,
     @SerializedName("img_list")
-    val plantList: List<HomePlantListData>
+    val plantList: List<PlantListData>
 )
 
-data class HomePlantListData(
+data class PlantListData(
     @SerializedName("pk")
     val id: Int,
     val image: String,

@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.response.HomePlantListData" />
+            type="com.capstone.patech_android.data.response.PlantListData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
