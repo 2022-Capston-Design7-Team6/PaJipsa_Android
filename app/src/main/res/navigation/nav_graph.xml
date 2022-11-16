@@ -49,6 +49,15 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+
+        <argument
+            android:name="plantName"
+            app:argType="string" />
+
+        <argument
+            android:name="plantCategory"
+            app:argType="integer" />
+
         <action
             android:id="@+id/action_detailFragment_to_harvestFragment"
             app:destination="@id/harvestFragment" />
@@ -77,6 +86,10 @@
         <action
             android:id="@+id/action_harvestFragment_to_photoModeDialog"
             app:destination="@id/photoModeDialog" />
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
     </fragment>
 
     <fragment
@@ -87,6 +100,10 @@
         <action
             android:id="@+id/action_recordFragment_to_photoModeDialog"
             app:destination="@id/photoModeDialog" />
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
     </fragment>
 
     <fragment

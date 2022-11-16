@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHarvestBinding
@@ -21,6 +22,7 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
     R.layout.fragment_harvest
 ) {
     override val viewModel: HarvestViewModel by viewModels()
+    private val args: HarvestFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,14 +36,29 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
             popBackStack()
         }
         binding.tvComplete.setOnClickListener {
-            viewModel.postHarvest()
-            popBackStack()
+            binding.progressBar.visibility = View.VISIBLE
+            viewModel.postHarvest(args.plantId)
+            it.postDelayed(
+                {
+                    popBackStack()
+                    binding.progressBar.visibility = View.GONE
+                },
+                1000
+            )
         }
         binding.layoutPhotoBefore.setOnClickListener {
-            navigateWithData(HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(RECORD_CAMERA))
+            navigateWithData(
+                HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
+                    RECORD_CAMERA
+                )
+            )
         }
         binding.layoutPhotoAfter.setOnClickListener {
-            navigateWithData(HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(HARVEST_AFTER_CAMERA))
+            navigateWithData(
+                HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
+                    HARVEST_AFTER_CAMERA
+                )
+            )
         }
     }
 

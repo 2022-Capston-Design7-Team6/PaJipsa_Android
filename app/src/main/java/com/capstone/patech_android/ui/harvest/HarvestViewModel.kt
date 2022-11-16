@@ -12,11 +12,6 @@ import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
 class HarvestViewModel : ViewModel() {
-
-    // TODO : 식물 이미지 넘겨받기 viewModel args
-    private val _plantId = MutableLiveData<Int>()
-    val plantId: LiveData<Int> = _plantId
-
     private val _previewList = MutableLiveData<List<PreviewData>>()
     val previewList: LiveData<List<PreviewData>> = _previewList
 
@@ -53,19 +48,16 @@ class HarvestViewModel : ViewModel() {
         afterImage.value = imgUri
     }
 
-    fun postHarvest() {
+    fun postHarvest(plantId: Int) {
         viewModelScope.launch {
             try {
-                val plantId = plantId.value
-                if (plantId != null) {
-                    ServiceBuilder.cameraService.postHarvest(
-                        HarvestRequest(
-                            plantId,
-                            beforeImageBase64,
-                            afterImageBase64
-                        )
+                ServiceBuilder.cameraService.postHarvest(
+                    HarvestRequest(
+                        plantId,
+                        beforeImageBase64,
+                        afterImageBase64
                     )
-                }
+                )
                 Log.d("postHarvest", "서버")
             } catch (e: HttpException) {
                 Log.d("postHarvest", e.message())

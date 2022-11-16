@@ -1,12 +1,10 @@
 package com.capstone.patech_android.ui.detail
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.capstone.patech_android.data.api.ServiceBuilder
 import com.capstone.patech_android.data.response.TimeLine
+import com.capstone.patech_android.util.PairMediatorLiveData
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -21,24 +19,43 @@ class DetailViewModel : ViewModel() {
     private val _birthDate = MutableLiveData<Int>()
     val birthDate: LiveData<Int> = _birthDate
 
+    private val _startDate = MutableLiveData<String>()
+    val startDate: LiveData<String> = _startDate
+
+    val dateString = MediatorLiveData<String>().apply {
+        addSource(
+            PairMediatorLiveData(birthDate, startDate)
+        ) { triple ->
+            val birthDate = triple.first
+            val startDate = triple.second
+            if (birthDate != null && startDate != null) {
+                this.value = "${startDate.replace("-", ".")} (D+${birthDate}일)"
+            }
+        }
+    }
+
     private val _timelineList = MutableLiveData<List<TimeLine>>()
     val timelineList: LiveData<List<TimeLine>> = _timelineList
 
-    fun fetchDetailData(plantId: Int) {
+    fun fetchDetailData(id: Int) {
         viewModelScope.launch {
             try {
                 val response = ServiceBuilder.plantService.getPlantDetail(
-                    plantId
+                    id
                 )
                 _timelineList.postValue(response.timeLineList)
-                plantName.value = response.plantInfo.plantName
-                plantCategory.value = response.plantInfo.plantCategory
                 _plantHarvest.value = response.plantInfo.harvestTime
+                _startDate.value = response.plantInfo.startDate
                 _birthDate.value = response.plantInfo.birthDay
             } catch (e: HttpException) {
                 _timelineList.postValue(listOf())
                 Log.d("fetchDetailData", e.message().toString())
             }
         }
+    }
+
+    fun setPlantInfoDate(name: String, category: Int) {
+        plantName.value = name
+        plantCategory.value = category
     }
 }

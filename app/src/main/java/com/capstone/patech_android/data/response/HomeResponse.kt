@@ -1,6 +1,8 @@
 package com.capstone.patech_android.data.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class HomeResponse(
     val nickname: String,
@@ -18,6 +20,7 @@ data class HomePlantListData(
     val plantInfo: PlantInfo
 )
 
+@Parcelize
 data class PlantInfo(
     @SerializedName("d_day")
     val birthDay: Int,
@@ -28,5 +31,7 @@ data class PlantInfo(
     @SerializedName("plant_name")
     val plantName: String,
     @SerializedName("plant_species")
-    val plantCategory: Int
-)
+    val plantCategory: Int,
+    @SerializedName("start_date")
+    val startDate: String,
+) : Parcelable

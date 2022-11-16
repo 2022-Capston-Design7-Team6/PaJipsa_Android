@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentRecordBinding
@@ -18,6 +19,7 @@ class RecordFragment : ViewModelFragment<FragmentRecordBinding, RecordViewModel>
     R.layout.fragment_record
 ) {
     override val viewModel: RecordViewModel by viewModels()
+    private val args: RecordFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

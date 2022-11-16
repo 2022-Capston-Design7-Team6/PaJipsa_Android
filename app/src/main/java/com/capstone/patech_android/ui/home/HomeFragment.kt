@@ -65,8 +65,8 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
         binding.layoutListTitle.setOnClickListener {
             navigate(R.id.action_homeFragment_to_plantListFragment)
         }
-        binding.layoutHarvest.setOnClickListener {
-            navigate(R.id.action_homeFragment_to_harvestFragment)
-        }
+//        binding.layoutHarvest.setOnClickListener {
+//            navigate(R.id.action_homeFragment_to_harvestFragment)
+//        }
     }
 }

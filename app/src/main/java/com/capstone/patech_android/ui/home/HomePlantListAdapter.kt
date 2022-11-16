@@ -20,7 +20,7 @@ class HomePlantListAdapter :
         fun onBind(data: HomePlantListData) {
             binding.data = data
             val harvestTime = data.plantInfo.harvestTime
-            if(harvestTime != null) {
+            if (harvestTime != null) {
                 val time = timeFormatToCalender(harvestTime)
                 if (time != null) {
                     val month = time.get(Calendar.MONTH) + 1
@@ -31,7 +31,11 @@ class HomePlantListAdapter :
             }
             binding.root.setOnClickListener {
                 it.navigateWithData(
-                    HomeFragmentDirections.actionHomeFragmentToDetailFragment(data.plantInfo.id)
+                    HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                        plantCategory = data.plantInfo.plantCategory,
+                        plantId = data.plantInfo.id,
+                        plantName = data.plantInfo.plantName
+                    )
                 )
             }
         }

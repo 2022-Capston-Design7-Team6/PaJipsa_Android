@@ -7,7 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentDetailBinding
-import com.capstone.patech_android.util.navigate
+import com.capstone.patech_android.util.navigateWithData
 import com.capstone.patech_android.util.popBackStack
 import com.capstone.patech_android.util.timeFormatToCalender
 import java.util.*
@@ -24,9 +24,13 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
         super.onViewCreated(view, savedInstanceState)
         timelineAdapter = DetailTimelineAdapter()
         viewModel.fetchDetailData(args.plantId)
+        viewModel.setPlantInfoDate(
+            args.plantName,
+            args.plantCategory,
+        )
+        addListener(args.plantId)
         initRVAdapter()
         setTimelineList()
-        addListener()
         setHarvestTimeText()
         setBirthDateText()
     }
@@ -43,31 +47,33 @@ class DetailFragment : ViewModelFragment<FragmentDetailBinding, DetailViewModel>
         }
     }
 
-    private fun addListener() {
+    private fun addListener(plantId: Int) {
         binding.btnBack.setOnClickListener {
             popBackStack()
         }
         binding.btnHarvest.setOnClickListener {
-            navigate(R.id.action_detailFragment_to_harvestFragment)
+            navigateWithData(
+                DetailFragmentDirections.actionDetailFragmentToHarvestFragment(plantId)
+            )
         }
         binding.btnWrite.setOnClickListener {
-            navigate(R.id.action_detailFragment_to_recordFragment)
+            navigateWithData(
+                DetailFragmentDirections.actionDetailFragmentToRecordFragment(plantId)
+            )
         }
     }
 
+
     private fun setBirthDateText() {
-        viewModel.birthDate.observe(viewLifecycleOwner) {
-            // TODO : 등록날짜 필요
-            // TODO : 물주기 레이아웃 제거
-            val birth = "(D+$it)"
-            binding.tvBirth.text = birth
+        viewModel.dateString.observe(viewLifecycleOwner) {
+            binding.tvBirth.text = it
         }
     }
 
     private fun setHarvestTimeText() {
         viewModel.plantHarvest.observe(viewLifecycleOwner) {
             if (it == null) {
-                binding.tvHarvest.text ="더 많은 파 일지가 필요해요!"
+                binding.tvHarvest.text = "더 많은 파 일지가 필요해요!"
             } else {
                 val time = timeFormatToCalender(it)
                 if (time != null) {

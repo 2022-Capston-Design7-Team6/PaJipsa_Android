@@ -38,8 +38,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    isAbleOrUnable="@{viewModel.validPhotos}"
                     android:id="@+id/tv_complete"
+                    isAbleOrUnable="@{viewModel.validPhotos}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -169,5 +169,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progress="20"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

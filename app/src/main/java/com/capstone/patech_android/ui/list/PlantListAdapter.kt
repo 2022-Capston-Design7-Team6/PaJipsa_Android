@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.patech_android.data.model.PlantListData
 import com.capstone.patech_android.databinding.ItemPlantListBinding
-import com.capstone.patech_android.util.navigateWithData
 
 class PlantListAdapter :
     ListAdapter<PlantListData, PlantListAdapter.PaListViewHolder>(PlantDiffUtil()) {
@@ -18,9 +17,9 @@ class PlantListAdapter :
         fun onBind(data: PlantListData) {
             binding.data = data
             binding.root.setOnClickListener {
-                it.navigateWithData(
-                    PlantListFragmentDirections.actionPlantListFragmentToDetailFragment(data.id)
-                )
+//                it.navigateWithData(
+//                    PlantListFragmentDirections.actionPlantListFragmentToDetailFragment()
+//                )
             }
         }
     }
