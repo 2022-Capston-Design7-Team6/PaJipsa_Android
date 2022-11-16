@@ -245,12 +245,13 @@
                 </RadioGroup>
 
 
-                <View
+                <ImageView
                     android:id="@+id/layout_graph"
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:background="#f6f6f6"
+                    android:src="@drawable/img_graph"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_graph" />
