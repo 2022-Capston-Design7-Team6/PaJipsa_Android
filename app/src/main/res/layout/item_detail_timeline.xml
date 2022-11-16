@@ -28,13 +28,13 @@
             tools:text="10.21" />
 
         <ImageView
-            imageCoil="@{data.image}"
             android:id="@+id/iv_image"
+            imageCoil="@{data.image}"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="22dp"
-            android:background="@color/gray_light"
+            android:background="@drawable/shape_light_gray_fill_8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_date"
             app:layout_constraintTop_toTopOf="@id/tv_date" />
