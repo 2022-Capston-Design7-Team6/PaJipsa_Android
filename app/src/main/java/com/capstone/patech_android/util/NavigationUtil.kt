@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 
 fun Fragment.popBackStack() {
     this.findNavController().popBackStack()
+    KeyBoardUtil.hide(requireActivity())
 }
 
 fun Fragment.navigate(action: Int) {
