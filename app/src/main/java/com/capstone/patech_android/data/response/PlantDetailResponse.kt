@@ -21,7 +21,12 @@ data class Graph(
 
 data class TimeLine(
     val date: String,
-    val event: Int?,
+    @SerializedName("event_water")
+    val eventWater: Boolean,
+    @SerializedName("event_harvest")
+    val eventHarvest: Boolean,
+    @SerializedName("event_chgpot")
+    val eventTrowel: Boolean,
     val image: String,
     @SerializedName("pk")
     val id: Int,
