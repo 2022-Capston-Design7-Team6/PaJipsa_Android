@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.model.PatechRankData" />
+            type="com.capstone.patech_android.data.response.Rank" />
     </data>
 
     <LinearLayout
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:includeFontPadding="false"
-            android:text="@{@string/price_format(data.price)}"
+            android:text="@{@string/price_format(data.totalPrice)}"
             android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
             android:textColor="@color/black"
             tools:text="1111" />

@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.patech.PatechViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,7 +53,7 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="20dp"
                         android:includeFontPadding="false"
-                        android:text="가은"
+                        android:text="@{viewModel.userName}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                         android:textColor="@color/green_main"
                         app:layout_constraintStart_toStartOf="parent"
@@ -76,24 +83,15 @@
 
                     <TextView
                         android:id="@+id/tv_value"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="26dp"
                         android:includeFontPadding="false"
-                        android:text="치킨 1마리🍗"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
-                        android:textColor="@color/green_main"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@id/tv_nickname"
                         app:layout_constraintTop_toBottomOf="@id/tv_patech" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:includeFontPadding="false"
-                        android:text="만큼을 수확했어요!"
-                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
-                        android:textColor="@color/black"
-                        app:layout_constraintStart_toEndOf="@id/tv_value"
-                        app:layout_constraintTop_toTopOf="@id/tv_value" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -101,7 +99,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="20dp"
                         android:includeFontPadding="false"
-                        android:text="대파 시세 1,290원/kg (2022.10.08 기준)"
+                        android:text="@{@string/green_onion_price(viewModel.greenOnionPrice, viewModel.greenOnionPriceDate)}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
                         android:textColor="@color/gray_light2"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -183,6 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:includeFontPadding="false"
+                        android:text="@{String.valueOf(viewModel.userRank)}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
                         android:textColor="@color/green_main"
                         tools:text="12" />
@@ -193,6 +192,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_weight="1"
                         android:includeFontPadding="false"
+                        android:text="@{viewModel.userName}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
                         android:textColor="@color/black"
                         tools:text="가은" />
@@ -202,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:includeFontPadding="false"
-                        android:text="@{@string/price_format(1010)}"
+                        android:text="@{@string/price_format(viewModel.userTotal)}"
                         android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
                         android:textColor="@color/black" />
                 </LinearLayout>
