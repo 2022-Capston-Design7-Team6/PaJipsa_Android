@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 fun timeFormatToCalender(inputDate: String): Calendar? {
-    val format = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'"
+    val format = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX"
     val sdf = SimpleDateFormat(format, Locale.getDefault())
     val calendar = Calendar.getInstance()
     calendar.time = sdf.parse(inputDate) ?: return null
