@@ -131,6 +131,9 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_photoModeDialog_to_beforeCameraFragment"
+            app:destination="@id/beforeCameraFragment" />
     </dialog>
 
     <include app:graph="@navigation/create_nav_graph" />
@@ -140,6 +143,18 @@
         android:name="com.capstone.patech_android.ui.harvest.aftercamera.AfterCameraFragment"
         android:label="AfterCameraFragment"
         tools:layout="@layout/fragment_harvest_after_camera">
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/beforeCameraFragment"
+        android:name="com.capstone.patech_android.ui.harvest.beforecamera.BeforeCameraFragment"
+        android:label="BeforeCameraFragment"
+        tools:layout="@layout/fragment_harvest_before_camera">
 
         <argument
             android:name="plantId"

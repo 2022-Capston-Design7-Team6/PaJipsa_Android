@@ -11,9 +11,9 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHarvestBinding
 import com.capstone.patech_android.ui.dialog.PhotoModeDialog.Companion.HARVEST_AFTER_CAMERA
-import com.capstone.patech_android.ui.dialog.PhotoModeDialog.Companion.RECORD_CAMERA
+import com.capstone.patech_android.ui.dialog.PhotoModeDialog.Companion.HARVEST_BEFORE_CAMERA
 import com.capstone.patech_android.ui.harvest.aftercamera.AfterCameraFragment.Companion.AFTER_URI
-import com.capstone.patech_android.ui.record.RecordCameraFragment
+import com.capstone.patech_android.ui.harvest.beforecamera.BeforeCameraFragment.Companion.BEFORE_URI
 import com.capstone.patech_android.util.ImageResolver
 import com.capstone.patech_android.util.databinding.imageCoil
 import com.capstone.patech_android.util.navigateWithData
@@ -39,19 +39,14 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
         binding.tvComplete.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             viewModel.postHarvest(args.plantId)
-            it.postDelayed(
-                {
-                    popBackStack()
-                    Toast.makeText(context, "파 수확이 완료되었어요!", Toast.LENGTH_SHORT).show()
-                    binding.progressBar.visibility = View.GONE
-                },
-                1000
-            )
+            popBackStack()
+            Toast.makeText(context, "파 수확이 완료되었어요!", Toast.LENGTH_SHORT).show()
+            binding.progressBar.visibility = View.GONE
         }
         binding.layoutPhotoBefore.setOnClickListener {
             navigateWithData(
                 HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
-                    fromView = RECORD_CAMERA,
+                    fromView = HARVEST_BEFORE_CAMERA,
                     plantId = args.plantId
                 )
             )
@@ -68,7 +63,7 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
 
     private fun getBeforeUri() {
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Uri>(
-            RecordCameraFragment.SAVED_URI
+            BEFORE_URI
         )?.observe(viewLifecycleOwner) {
             binding.ivPhotoBefore.imageCoil(it)
             viewModel.setBeforeImage(requireNotNull(it))

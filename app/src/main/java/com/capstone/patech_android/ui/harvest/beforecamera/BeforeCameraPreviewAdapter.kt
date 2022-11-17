@@ -1,4 +1,4 @@
-package com.capstone.patech_android.ui.harvest.aftercamera
+package com.capstone.patech_android.ui.harvest.beforecamera
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,8 +10,8 @@ import com.capstone.patech_android.databinding.ItemCameraPreviewBinding
 import com.capstone.patech_android.ui.harvest.HarvestViewModel
 import com.capstone.patech_android.util.timeFormatToPreviewDate
 
-class AfterCameraPreviewAdapter(private val viewModel: HarvestViewModel) :
-    ListAdapter<PreviewImage, AfterCameraPreviewAdapter.PreviewViewHolder>(PreviewDiffUtil()) {
+class BeforeCameraPreviewAdapter(private val viewModel: HarvestViewModel) :
+    ListAdapter<PreviewImage, BeforeCameraPreviewAdapter.PreviewViewHolder>(PreviewDiffUtil()) {
 
     inner class PreviewViewHolder(
         private val binding: ItemCameraPreviewBinding
@@ -21,7 +21,7 @@ class AfterCameraPreviewAdapter(private val viewModel: HarvestViewModel) :
             binding.tvDate.text = timeFormatToPreviewDate(data.date)
 
             binding.root.setOnClickListener {
-                viewModel.setOverlapAfterImage(data.image)
+                viewModel.setOverlapBeforeImage(data.image)
             }
         }
     }

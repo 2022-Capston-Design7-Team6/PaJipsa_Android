@@ -31,6 +31,11 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
             when (args.fromView) {
                 DEFAULT_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
                 RECORD_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
+                HARVEST_BEFORE_CAMERA -> navigateWithData(
+                    PhotoModeDialogDirections.actionPhotoModeDialogToBeforeCameraFragment(
+                        args.plantId
+                    )
+                )
                 HARVEST_AFTER_CAMERA -> navigateWithData(
                     PhotoModeDialogDirections.actionPhotoModeDialogToAfterCameraFragment(
                         args.plantId
@@ -49,6 +54,7 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
     companion object {
         const val DEFAULT_CAMERA = 0
         const val RECORD_CAMERA = 1
-        const val HARVEST_AFTER_CAMERA = 2
+        const val HARVEST_BEFORE_CAMERA = 2
+        const val HARVEST_AFTER_CAMERA = 3
     }
 }
