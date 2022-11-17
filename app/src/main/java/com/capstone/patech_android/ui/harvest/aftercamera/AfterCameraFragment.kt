@@ -18,6 +18,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHarvestAfterCameraBinding
@@ -31,6 +32,7 @@ class AfterCameraFragment : ViewModelFragment<FragmentHarvestAfterCameraBinding,
     R.layout.fragment_harvest_after_camera
 ) {
     override val viewModel: HarvestViewModel by viewModels()
+    private val args: AfterCameraFragmentArgs by navArgs()
     private lateinit var previewAdapter: AfterCameraPreviewAdapter
 
     private var imageCapture: ImageCapture? = null
@@ -47,8 +49,8 @@ class AfterCameraFragment : ViewModelFragment<FragmentHarvestAfterCameraBinding,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        previewAdapter = AfterCameraPreviewAdapter()
-        viewModel.fetchPreviewList()
+        previewAdapter = AfterCameraPreviewAdapter(viewModel)
+        viewModel.fetchPreviewList(args.plantId)
         initRVAdapter()
         setPreviewList()
         addListener()

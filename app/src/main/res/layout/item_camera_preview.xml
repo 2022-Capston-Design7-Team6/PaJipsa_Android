@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.capstone.patech_android.data.model.PreviewData" />
+            type="com.capstone.patech_android.data.response.PreviewImage" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,20 +28,21 @@
         <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#80ffffff"
+            android:background="@drawable/shape_white_alpha_fill_8"
             app:layout_constraintBottom_toBottomOf="@id/iv_preview"
             app:layout_constraintEnd_toEndOf="@id/iv_preview"
             app:layout_constraintStart_toStartOf="@id/iv_preview"
             app:layout_constraintTop_toTopOf="@id/iv_preview" />
 
         <TextView
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginBottom="4dp"
             android:includeFontPadding="false"
             android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/iv_preview"
             app:layout_constraintStart_toStartOf="@id/iv_preview"

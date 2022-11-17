@@ -6,8 +6,10 @@ import com.capstone.patech_android.data.response.PreviewResponse
 import retrofit2.http.*
 
 interface CameraService {
-    @GET("/getphotos")
-    suspend fun getPreview(): PreviewResponse
+    @GET("/getphotos/{plant}")
+    suspend fun getPreview(
+        @Path("plant") plantId: Int,
+    ): PreviewResponse
 
     @POST("/harvest/")
     suspend fun postHarvest(

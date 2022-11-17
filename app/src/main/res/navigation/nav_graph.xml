@@ -127,6 +127,10 @@
             android:name="fromView"
             android:defaultValue="0"
             app:argType="integer" />
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
     </dialog>
 
     <include app:graph="@navigation/create_nav_graph" />
@@ -135,5 +139,10 @@
         android:id="@+id/afterCameraFragment"
         android:name="com.capstone.patech_android.ui.harvest.aftercamera.AfterCameraFragment"
         android:label="AfterCameraFragment"
-        tools:layout="@layout/fragment_harvest_after_camera" />
+        tools:layout="@layout/fragment_harvest_after_camera">
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

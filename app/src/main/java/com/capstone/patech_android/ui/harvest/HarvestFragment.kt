@@ -3,6 +3,7 @@ package com.capstone.patech_android.ui.harvest
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -41,6 +42,7 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
             it.postDelayed(
                 {
                     popBackStack()
+                    Toast.makeText(context, "파 수확이 완료되었어요!", Toast.LENGTH_SHORT).show()
                     binding.progressBar.visibility = View.GONE
                 },
                 1000
@@ -49,14 +51,16 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
         binding.layoutPhotoBefore.setOnClickListener {
             navigateWithData(
                 HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
-                    RECORD_CAMERA
+                    fromView = RECORD_CAMERA,
+                    plantId = args.plantId
                 )
             )
         }
         binding.layoutPhotoAfter.setOnClickListener {
             navigateWithData(
                 HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
-                    HARVEST_AFTER_CAMERA
+                    fromView = HARVEST_AFTER_CAMERA,
+                    plantId = args.plantId
                 )
             )
         }

@@ -10,5 +10,5 @@ data class PreviewResponse(
 data class PreviewImage(
     val image: String,
     @SerializedName("my_date")
-    val date: PlantInfo
+    val date: String
 )

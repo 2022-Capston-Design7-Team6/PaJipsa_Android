@@ -5,9 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.capstone.patech_android.R
 import com.capstone.patech_android.databinding.DialogPhotoModeBinding
-import com.capstone.patech_android.util.navigate
+import com.capstone.patech_android.util.navigateWithData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class PhotoModeDialog : BottomSheetDialogFragment() {
@@ -30,9 +29,13 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
     private fun openCamera() {
         binding.btnCamera.setOnClickListener {
             when (args.fromView) {
-                DEFAULT_CAMERA -> navigate(R.id.action_photoModeDialog_to_recordCameraFragment)
-                RECORD_CAMERA -> navigate(R.id.action_photoModeDialog_to_recordCameraFragment)
-                HARVEST_AFTER_CAMERA -> navigate(R.id.action_photoModeDialog_to_afterCameraFragment)
+                DEFAULT_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
+                RECORD_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
+                HARVEST_AFTER_CAMERA -> navigateWithData(
+                    PhotoModeDialogDirections.actionPhotoModeDialogToAfterCameraFragment(
+                        args.plantId
+                    )
+                )
             }
         }
     }
