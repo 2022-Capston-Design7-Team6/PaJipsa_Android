@@ -38,7 +38,8 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
                 )
                 HARVEST_AFTER_CAMERA -> navigateWithData(
                     PhotoModeDialogDirections.actionPhotoModeDialogToAfterCameraFragment(
-                        args.plantId
+                        args.plantId,
+                        args.beforeImage.orEmpty()
                     )
                 )
             }

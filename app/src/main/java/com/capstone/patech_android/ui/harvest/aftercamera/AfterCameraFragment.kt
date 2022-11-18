@@ -24,7 +24,9 @@ import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHarvestAfterCameraBinding
 import com.capstone.patech_android.ui.harvest.HarvestViewModel
 import com.capstone.patech_android.util.PermissionUtil
+import com.capstone.patech_android.util.databinding.imageCoil
 import com.capstone.patech_android.util.popBackStack
+import com.capstone.patech_android.util.setTodayDate
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -51,9 +53,23 @@ class AfterCameraFragment : ViewModelFragment<FragmentHarvestAfterCameraBinding,
         super.onViewCreated(view, savedInstanceState)
         previewAdapter = AfterCameraPreviewAdapter(viewModel)
         viewModel.fetchPreviewList(args.plantId)
+        initBeforeImagePreview()
         initRVAdapter()
         setPreviewList()
         addListener()
+    }
+
+    private fun initBeforeImagePreview() {
+        binding.tvTodayDate.text = setTodayDate()
+        if (args.beforeImage.isNotEmpty() && args.beforeImage != "null") {
+            binding.ivBeforePreview.imageCoil(args.beforeImage)
+        } else {
+            binding.layoutBefore.visibility = View.GONE
+        }
+
+        binding.layoutBefore.setOnClickListener {
+            viewModel.setOverlapAfterImage(args.beforeImage)
+        }
     }
 
     private fun initRVAdapter() {

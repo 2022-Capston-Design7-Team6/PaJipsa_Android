@@ -20,3 +20,8 @@ fun timeFormatToPreviewDate(inputDate: String): String {
     calendar.timeZone = TimeZone.getTimeZone("Etc/UTC")
     return "${calendar.get(Calendar.MONTH) + 1}.${calendar.get(Calendar.DATE)}"
 }
+
+fun setTodayDate() : String {
+    val simpleDateFormat = SimpleDateFormat("MM.dd", Locale.KOREA)
+    return simpleDateFormat.format(Calendar.getInstance().time)
+}

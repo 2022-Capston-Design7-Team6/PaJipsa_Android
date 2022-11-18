@@ -10,8 +10,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentPatechBinding
 import com.capstone.patech_android.util.popBackStack
-import java.text.SimpleDateFormat
-import java.util.*
+import com.capstone.patech_android.util.setTodayDate
 
 class PatechFragment : ViewModelFragment<FragmentPatechBinding, PatechViewModel>(
     R.layout.fragment_patech
@@ -32,8 +31,7 @@ class PatechFragment : ViewModelFragment<FragmentPatechBinding, PatechViewModel>
     }
 
     private fun initTodayDate() {
-        val simpleDateFormat = SimpleDateFormat("MM.dd", Locale.KOREA)
-        binding.tvNowDate.text = simpleDateFormat.format(Calendar.getInstance().time)
+        binding.tvNowDate.text = setTodayDate()
     }
 
     private fun setPatechValueText() {

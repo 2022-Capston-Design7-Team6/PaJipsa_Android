@@ -36,3 +36,21 @@ fun ImageView.imageCoil(url: Uri?) {
         }
     }
 }
+
+@BindingAdapter("imageCoilNoRounded")
+fun ImageView.imageCoilNoRounded(url: String?) {
+    url?.let {
+        load(url) {
+            placeholder(R.color.gray_light)
+        }
+    }
+}
+
+@BindingAdapter("imageCoilNoRounded")
+fun ImageView.imageCoilNoRounded(url: Uri?) {
+    url?.let {
+        load(url) {
+            placeholder(R.color.gray_light)
+        }
+    }
+}

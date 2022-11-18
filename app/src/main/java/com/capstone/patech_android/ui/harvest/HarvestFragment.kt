@@ -55,7 +55,8 @@ class HarvestFragment : ViewModelFragment<FragmentHarvestBinding, HarvestViewMod
             navigateWithData(
                 HarvestFragmentDirections.actionHarvestFragmentToPhotoModeDialog(
                     fromView = HARVEST_AFTER_CAMERA,
-                    plantId = args.plantId
+                    plantId = args.plantId,
+                    beforeImage = viewModel.beforeImage.value.toString()
                 )
             )
         }

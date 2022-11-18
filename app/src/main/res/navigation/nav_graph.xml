@@ -131,6 +131,13 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+
+        <argument
+            android:name="beforeImage"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
         <action
             android:id="@+id/action_photoModeDialog_to_beforeCameraFragment"
             app:destination="@id/beforeCameraFragment" />
@@ -147,6 +154,10 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+
+        <argument
+            android:name="beforeImage"
+            app:argType="string" />
     </fragment>
 
 
