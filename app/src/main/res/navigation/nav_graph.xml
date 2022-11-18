@@ -110,7 +110,12 @@
         android:id="@+id/recordCameraFragment"
         android:name="com.capstone.patech_android.ui.record.RecordCameraFragment"
         android:label="RecordCameraFragment"
-        tools:layout="@layout/fragment_record_camera" />
+        tools:layout="@layout/fragment_record_camera">
+
+        <argument
+            android:name="plantId"
+            app:argType="integer" />
+    </fragment>
 
     <dialog
         android:id="@+id/photoModeDialog"
@@ -123,6 +128,10 @@
         <action
             android:id="@+id/action_photoModeDialog_to_afterCameraFragment"
             app:destination="@id/afterCameraFragment" />
+
+        <action
+            android:id="@+id/action_photoModeDialog_to_beforeCameraFragment"
+            app:destination="@id/beforeCameraFragment" />
         <argument
             android:name="fromView"
             android:defaultValue="0"
@@ -137,10 +146,6 @@
             android:defaultValue="@null"
             app:argType="string"
             app:nullable="true" />
-
-        <action
-            android:id="@+id/action_photoModeDialog_to_beforeCameraFragment"
-            app:destination="@id/beforeCameraFragment" />
     </dialog>
 
     <include app:graph="@navigation/create_nav_graph" />

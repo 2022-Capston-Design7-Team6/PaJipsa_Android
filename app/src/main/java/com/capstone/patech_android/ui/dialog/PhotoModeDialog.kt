@@ -29,8 +29,13 @@ class PhotoModeDialog : BottomSheetDialogFragment() {
     private fun openCamera() {
         binding.btnCamera.setOnClickListener {
             when (args.fromView) {
-                DEFAULT_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
-                RECORD_CAMERA -> navigateWithData(PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment())
+                RECORD_CAMERA -> {
+                    navigateWithData(
+                        PhotoModeDialogDirections.actionPhotoModeDialogToRecordCameraFragment(
+                            args.plantId
+                        )
+                    )
+                }
                 HARVEST_BEFORE_CAMERA -> navigateWithData(
                     PhotoModeDialogDirections.actionPhotoModeDialogToBeforeCameraFragment(
                         args.plantId

@@ -3,7 +3,6 @@ package com.capstone.patech_android.ui.record
 import android.Manifest
 import android.content.ContentValues
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,7 +10,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -20,6 +18,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentRecordCameraBinding
@@ -32,13 +31,10 @@ class RecordCameraFragment : ViewModelFragment<FragmentRecordCameraBinding, Reco
     R.layout.fragment_record_camera
 ) {
     override val viewModel: RecordViewModel by viewModels()
+    private val args: RecordCameraFragmentArgs by navArgs()
     private lateinit var previewAdapter: RecordPreviewAdapter
 
     private var imageCapture: ImageCapture? = null
-
-    private lateinit var cameraAnimationListener: Animation.AnimationListener
-
-    private var savedUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,8 +48,8 @@ class RecordCameraFragment : ViewModelFragment<FragmentRecordCameraBinding, Reco
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        previewAdapter = RecordPreviewAdapter()
-        viewModel.fetchPreviewList()
+        previewAdapter = RecordPreviewAdapter(viewModel)
+        viewModel.fetchPreviewList(args.plantId)
         initRVAdapter()
         setPreviewList()
         addListener()
@@ -106,7 +102,6 @@ class RecordCameraFragment : ViewModelFragment<FragmentRecordCameraBinding, Reco
     }
 
     private fun openCamera() {
-        Log.d("openCamera", "openCamera")
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
 
         cameraProviderFuture.addListener({

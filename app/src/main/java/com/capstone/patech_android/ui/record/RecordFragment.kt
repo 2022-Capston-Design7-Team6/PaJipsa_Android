@@ -30,7 +30,10 @@ class RecordFragment : ViewModelFragment<FragmentRecordBinding, RecordViewModel>
     private fun addListener() {
         binding.layoutPhoto.setOnClickListener {
             navigateWithData(
-                RecordFragmentDirections.actionRecordFragmentToPhotoModeDialog(RECORD_CAMERA)
+                RecordFragmentDirections.actionRecordFragmentToPhotoModeDialog(
+                    fromView = RECORD_CAMERA,
+                    plantId = args.plantId
+                )
             )
         }
         binding.btnBack.setOnClickListener {

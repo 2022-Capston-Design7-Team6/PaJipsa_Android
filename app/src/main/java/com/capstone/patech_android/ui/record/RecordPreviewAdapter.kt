@@ -5,18 +5,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.patech_android.data.model.PreviewData
+import com.capstone.patech_android.data.response.PreviewImage
 import com.capstone.patech_android.databinding.ItemCameraPreviewBinding
+import com.capstone.patech_android.util.timeFormatToPreviewDate
 
-class RecordPreviewAdapter :
-    ListAdapter<PreviewData, RecordPreviewAdapter.PreviewViewHolder>(PreviewDiffUtil()) {
+class RecordPreviewAdapter(private val viewModel: RecordViewModel) :
+    ListAdapter<PreviewImage, RecordPreviewAdapter.PreviewViewHolder>(PreviewDiffUtil()) {
 
     inner class PreviewViewHolder(
         private val binding: ItemCameraPreviewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: PreviewData) {
+        fun onBind(data: PreviewImage) {
             binding.data = data
-
+            binding.tvDate.text = timeFormatToPreviewDate(data.date)
+            binding.root.setOnClickListener {
+                viewModel.setOverlapImage(data.image)
+            }
         }
     }
 
@@ -34,12 +38,12 @@ class RecordPreviewAdapter :
         holder.onBind(getItem(position))
     }
 
-    private class PreviewDiffUtil : DiffUtil.ItemCallback<PreviewData>() {
-        override fun areItemsTheSame(oldItem: PreviewData, newItem: PreviewData): Boolean {
-            return oldItem.id == newItem.id
+    private class PreviewDiffUtil : DiffUtil.ItemCallback<PreviewImage>() {
+        override fun areItemsTheSame(oldItem: PreviewImage, newItem: PreviewImage): Boolean {
+            return oldItem.image == newItem.image
         }
 
-        override fun areContentsTheSame(oldItem: PreviewData, newItem: PreviewData): Boolean {
+        override fun areContentsTheSame(oldItem: PreviewImage, newItem: PreviewImage): Boolean {
             return oldItem == newItem
         }
     }
