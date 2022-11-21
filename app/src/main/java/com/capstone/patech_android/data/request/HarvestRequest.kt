@@ -4,4 +4,5 @@ data class HarvestRequest(
     val plant: Int,
     val beforeimage: String,
     val afterimage: String,
+    val text: String,
 )

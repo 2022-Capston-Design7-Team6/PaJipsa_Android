@@ -26,6 +26,8 @@ class HarvestViewModel : ViewModel() {
     lateinit var beforeImageBase64: String
     lateinit var afterImageBase64: String
 
+    val record = MutableLiveData("")
+
     val validPhotos = MediatorLiveData<Boolean>().apply {
         addSource(
             PairMediatorLiveData(beforeImage, afterImage)
@@ -70,7 +72,8 @@ class HarvestViewModel : ViewModel() {
                     HarvestRequest(
                         plantId,
                         beforeImageBase64,
-                        afterImageBase64
+                        afterImageBase64,
+                        record.value.orEmpty()
                     )
                 )
                 Log.d("postHarvest", "서버")
