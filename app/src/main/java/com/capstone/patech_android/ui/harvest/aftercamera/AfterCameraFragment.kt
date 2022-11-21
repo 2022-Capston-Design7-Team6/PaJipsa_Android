@@ -88,6 +88,9 @@ class AfterCameraFragment : ViewModelFragment<FragmentHarvestAfterCameraBinding,
         binding.btnBack.setOnClickListener {
             popBackStack()
         }
+        binding.tvUnoverlap.setOnClickListener {
+            viewModel.resetOverlapAfterImage()
+        }
     }
 
     // camera

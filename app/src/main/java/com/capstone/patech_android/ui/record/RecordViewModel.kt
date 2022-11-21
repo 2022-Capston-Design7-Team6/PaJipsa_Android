@@ -22,8 +22,8 @@ class RecordViewModel : ViewModel() {
     val image = MutableLiveData<Uri?>()
     lateinit var imageBase64: String
 
-    private val _overlapImage = MutableLiveData<String>()
-    val overlapImage: LiveData<String> = _overlapImage
+    private val _overlapImage = MutableLiveData<String?>()
+    val overlapImage: LiveData<String?> = _overlapImage
 
     val validImage = MediatorLiveData<Boolean>().apply {
         addSource(image) {
@@ -33,6 +33,10 @@ class RecordViewModel : ViewModel() {
 
     fun setImage(imgUri: Uri) {
         image.value = imgUri
+    }
+
+    fun resetOverlapImage() {
+        _overlapImage.value = null
     }
 
     fun setOverlapImage(image: String) {

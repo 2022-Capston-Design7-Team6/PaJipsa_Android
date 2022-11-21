@@ -14,11 +14,11 @@ class HarvestViewModel : ViewModel() {
     private val _previewList = MutableLiveData<List<PreviewImage>>()
     val previewList: LiveData<List<PreviewImage>> = _previewList
 
-    private val _overlapBeforeImage = MutableLiveData<String>()
-    val overlapBeforeImage: LiveData<String> = _overlapBeforeImage
+    private val _overlapBeforeImage = MutableLiveData<String?>()
+    val overlapBeforeImage: LiveData<String?> = _overlapBeforeImage
 
-    private val _overlapAfterImage = MutableLiveData<String>()
-    val overlapAfterImage: LiveData<String> = _overlapAfterImage
+    private val _overlapAfterImage = MutableLiveData<String?>()
+    val overlapAfterImage: LiveData<String?> = _overlapAfterImage
 
     val beforeImage = MutableLiveData<Uri?>()
     val afterImage = MutableLiveData<Uri?>()
@@ -55,6 +55,14 @@ class HarvestViewModel : ViewModel() {
 
     fun setOverlapAfterImage(image: String) {
         _overlapAfterImage.value = image
+    }
+
+    fun resetOverlapBeforeImage() {
+        _overlapBeforeImage.value = null
+    }
+
+    fun resetOverlapAfterImage() {
+        _overlapAfterImage.value = null
     }
 
     fun setBeforeImage(imgUri: Uri) {

@@ -51,6 +51,7 @@
 
         <ImageView
             imageCoilNoRounded="@{viewModel.overlapImage}"
+            isVisibleOrInvisible="@{viewModel.overlapImage != null}"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginVertical="16dp"
@@ -70,5 +71,21 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_unoverlap"
+            isVisibleOrGone="@{viewModel.overlapImage != null}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:includeFontPadding="false"
+            android:text="오버랩 끄기"
+            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
+            android:textColor="@color/white"
+            app:drawableTopCompat="@drawable/img_unoverlap"
+            app:layout_constraintBottom_toBottomOf="@id/btn_capture"
+            app:layout_constraintEnd_toStartOf="@id/btn_capture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_capture" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -71,6 +71,9 @@ class RecordCameraFragment : ViewModelFragment<FragmentRecordCameraBinding, Reco
         binding.btnBack.setOnClickListener {
             popBackStack()
         }
+        binding.tvUnoverlap.setOnClickListener {
+            viewModel.resetOverlapImage()
+        }
     }
 
     // camera

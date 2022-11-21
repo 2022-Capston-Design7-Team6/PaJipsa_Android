@@ -28,9 +28,10 @@ import com.capstone.patech_android.util.popBackStack
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BeforeCameraFragment : ViewModelFragment<FragmentHarvestBeforeCameraBinding, HarvestViewModel>(
-    R.layout.fragment_harvest_before_camera
-) {
+class BeforeCameraFragment :
+    ViewModelFragment<FragmentHarvestBeforeCameraBinding, HarvestViewModel>(
+        R.layout.fragment_harvest_before_camera
+    ) {
     override val viewModel: HarvestViewModel by viewModels()
     private val args: BeforeCameraFragmentArgs by navArgs()
     private lateinit var previewAdapter: BeforeCameraPreviewAdapter
@@ -71,6 +72,9 @@ class BeforeCameraFragment : ViewModelFragment<FragmentHarvestBeforeCameraBindin
     private fun addListener() {
         binding.btnBack.setOnClickListener {
             popBackStack()
+        }
+        binding.tvUnoverlap.setOnClickListener {
+            viewModel.resetOverlapBeforeImage()
         }
     }
 
