@@ -161,18 +161,17 @@ class RecordCameraFragment : ViewModelFragment<FragmentRecordCameraBinding, Reco
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                        SAVED_URI,
+                        RECORD_URI,
                         output.savedUri
                     )
                     popBackStack()
-                    val msg = "Photo capture succeeded: ${output.savedUri}"
-                    Log.d("savedPhoto", msg)
+                    Log.d("savedPhoto", "${output.savedUri}")
                 }
             }
         )
     }
 
     companion object {
-        const val SAVED_URI = "savedUri"
+        const val RECORD_URI = "recordUri"
     }
 }
