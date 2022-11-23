@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/layout_default_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
@@ -53,19 +54,36 @@
                 app:drawableStartCompat="@drawable/ic_plus_18" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_delete"
+        <LinearLayout
+            android:id="@+id/layout_edit_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:includeFontPadding="false"
-            android:text="삭제"
-            android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
-            android:textColor="@color/green_dark"
+            android:orientation="horizontal"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/btn_back"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_back" />
+            app:layout_constraintTop_toTopOf="@id/btn_back">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:includeFontPadding="false"
+                android:text="취소"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+                android:textColor="@color/black_sub" />
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:includeFontPadding="false"
+                android:text="삭제"
+                android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+                android:textColor="@color/green_dark" />
+        </LinearLayout>
 
         <RadioGroup
             android:id="@+id/radio_group"

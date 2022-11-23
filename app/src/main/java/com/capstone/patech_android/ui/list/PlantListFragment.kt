@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentPlantListBinding
+import com.capstone.patech_android.ui.dialog.TwoButtonDialog
 import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
@@ -18,12 +19,14 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        plantListAdapter = PlantListAdapter()
+        plantListAdapter = PlantListAdapter(viewModel, this)
         viewModel.fetchPlantList()
         initPlantRVAdapter()
         setPlantList()
         addListener()
         setCategoryFilterChangeList()
+        setEditMode()
+        setEditModeObserve()
     }
 
     private fun initPlantRVAdapter() {
@@ -40,7 +43,7 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
 
     private fun setCategoryFilterChangeList() {
         binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when(checkedId) {
+            when (checkedId) {
                 R.id.radio_all -> viewModel.setPlantRVList()
                 R.id.radio_green_onion -> viewModel.setPlantRVList(0)
                 R.id.radio_chive -> viewModel.setPlantRVList(1)
@@ -55,6 +58,34 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
         }
         binding.btnNew.setOnClickListener {
             navigate(R.id.action_plantListFragment_to_create_nav_graph)
+        }
+    }
+
+    private fun setEditMode() {
+        binding.btnEdit.setOnClickListener {
+            viewModel.editMode.value = true
+        }
+        binding.tvCancel.setOnClickListener {
+            viewModel.editMode.value = false
+            viewModel.resetDeleteItems()
+        }
+
+        binding.tvDelete.setOnClickListener {
+            TwoButtonDialog(0) {
+
+            }.show(childFragmentManager, "PLANT_DELETE")
+        }
+    }
+
+    private fun setEditModeObserve() {
+        viewModel.editMode.observe(viewLifecycleOwner) { editMode ->
+            if (editMode) {
+                binding.layoutDefaultBtn.visibility = View.GONE
+                binding.layoutEditMode.visibility = View.VISIBLE
+            } else {
+                binding.layoutDefaultBtn.visibility = View.VISIBLE
+                binding.layoutEditMode.visibility = View.GONE
+            }
         }
     }
 }

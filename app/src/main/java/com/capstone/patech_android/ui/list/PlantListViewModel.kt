@@ -10,11 +10,16 @@ import retrofit2.HttpException
 
 class PlantListViewModel : ViewModel() {
 
+    val editMode = MutableLiveData(false)
+
     private val _plantOriginList = MutableLiveData<List<PlantListData>>()
     val plantOriginList: LiveData<List<PlantListData>> = _plantOriginList
 
     private val _plantRVList = MutableLiveData<List<PlantListData>?>()
     val plantRVList: LiveData<List<PlantListData>?> = _plantRVList
+
+    private val _deleteItems = MutableLiveData<Set<Int>?>()
+    val deleteItems: LiveData<Set<Int>?> = _deleteItems
 
     private val validServer = MutableLiveData(false)
 
@@ -26,6 +31,22 @@ class PlantListViewModel : ViewModel() {
             val validServer = triple.second
             this.value = plantRVList == null && validServer == true
         }
+    }
+
+    fun setDeleteItems(plantId: Int) {
+        val deleteItems = deleteItems.value.orEmpty()
+        val currentItems = deleteItems.toHashSet().apply {
+            if (this.contains(plantId)) {
+                this.remove(plantId)
+            } else {
+                this.add(plantId)
+            }
+        }
+        _deleteItems.value = currentItems
+    }
+
+    fun resetDeleteItems() {
+        _deleteItems.value = null
     }
 
     fun fetchPlantList() {

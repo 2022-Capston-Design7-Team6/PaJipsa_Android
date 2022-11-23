@@ -1,6 +1,7 @@
 package com.capstone.patech_android.ui.list
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -9,7 +10,7 @@ import com.capstone.patech_android.data.response.PlantListData
 import com.capstone.patech_android.databinding.ItemPlantListBinding
 import com.capstone.patech_android.util.navigateWithData
 
-class PlantListAdapter :
+class PlantListAdapter(private val viewModel: PlantListViewModel, private val fragment: PlantListFragment) :
     ListAdapter<PlantListData, PlantListAdapter.PaListViewHolder>(PlantDiffUtil()) {
 
     inner class PaListViewHolder(
@@ -26,6 +27,21 @@ class PlantListAdapter :
                         plantCategory = data.plantInfo.plantCategory
                     )
                 )
+            }
+
+            viewModel.editMode.observe(fragment.viewLifecycleOwner) { isEditMode ->
+                if (isEditMode) {
+                    binding.cbList.visibility = View.VISIBLE
+                    binding.root.isClickable = false
+                } else {
+                    binding.cbList.visibility = View.GONE
+                    binding.cbList.isChecked = false
+                    binding.root.isClickable = true
+                }
+            }
+
+            binding.cbList.setOnCheckedChangeListener { _, _ ->
+                viewModel.setDeleteItems(data.plantInfo.id)
             }
         }
     }
