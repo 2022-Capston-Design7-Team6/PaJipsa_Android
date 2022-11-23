@@ -12,6 +12,7 @@ import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreatePotInfoBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
 import com.capstone.patech_android.util.KeyBoardUtil
+import com.capstone.patech_android.util.databinding.imageCoil
 import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
@@ -29,6 +30,12 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
 
     private fun initView() {
         binding.seekBar.setPadding(0)
+
+        viewModel.image.observe(viewLifecycleOwner) { image ->
+            if (image != null) {
+                binding.ivPhoto.imageCoil(image)
+            }
+        }
     }
 
     private fun addListener() {

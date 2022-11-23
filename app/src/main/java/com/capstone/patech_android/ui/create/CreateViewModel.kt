@@ -47,8 +47,18 @@ class CreateViewModel : ViewModel() {
 
 
     // pot photo
-    private val _image = MutableLiveData<Uri?>()
-    val image: LiveData<Uri?> = _image
+    val image = MutableLiveData<Uri?>()
+    lateinit var imageBase64: String
+
+    fun setImage(imgUri: Uri) {
+        image.value = imgUri
+    }
+
+    val validImage = MediatorLiveData<Boolean>().apply {
+        addSource(image) {
+            this.value = it != null
+        }
+    }
 
 
     // pot info

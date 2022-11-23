@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_createPotPhotoFragment_to_createPotInfoFragment"
             app:destination="@id/createPotInfoFragment" />
+        <action
+            android:id="@+id/action_createPotPhotoFragment_to_createPotCameraFragment"
+            app:destination="@id/createPotCameraFragment" />
     </fragment>
 
     <fragment
@@ -47,4 +50,8 @@
             app:popUpTo="@id/plantListFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/createPotCameraFragment"
+        android:name="com.capstone.patech_android.ui.create.potphoto.CreatePotCameraFragment"
+        android:label="CreatePotCameraFragment" />
 </navigation>
