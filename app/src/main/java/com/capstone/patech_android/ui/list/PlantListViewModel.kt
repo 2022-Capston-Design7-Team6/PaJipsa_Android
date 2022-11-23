@@ -63,6 +63,19 @@ class PlantListViewModel : ViewModel() {
         }
     }
 
+    fun deletePlant() {
+        viewModelScope.launch {
+            try {
+                // TODO: 식물 삭제 api test 필요 (식물등록 기능 구현 후)
+                for (planId in deleteItems.value.orEmpty()) {
+                    ServiceBuilder.plantService.deletePlant(planId)
+                }
+            } catch (e: HttpException) {
+                Log.d("deletePlant", e.message().toString())
+            }
+        }
+    }
+
     fun setPlantRVList(filterCategory: Int? = null) {
         when (filterCategory) {
             null -> _plantRVList.value = plantOriginList.value

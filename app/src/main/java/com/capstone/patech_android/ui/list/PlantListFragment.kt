@@ -72,7 +72,7 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
 
         binding.tvDelete.setOnClickListener {
             TwoButtonDialog(0) {
-
+                viewModel.deletePlant()
             }.show(childFragmentManager, "PLANT_DELETE")
         }
     }
