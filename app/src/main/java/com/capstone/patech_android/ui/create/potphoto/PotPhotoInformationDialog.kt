@@ -20,14 +20,24 @@ class PotPhotoInformationDialog(
     ): View {
         binding = DialogPotPhotoInfomationBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        initView()
         addListener()
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        initView()
+    }
+
     private fun initView() {
+        val dialogWidth = (resources.displayMetrics.widthPixels * 0.83).toInt()
+
         requireNotNull(dialog).apply {
             requireNotNull(window).apply {
+                setLayout(
+                    dialogWidth,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
                 setBackgroundDrawableResource(R.drawable.shape_white_fill_20)
             }
         }
