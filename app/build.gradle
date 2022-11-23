@@ -70,4 +70,7 @@ dependencies {
     // RetrofitLog
     implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+
+    // Vertical SeekBar
+    implementation 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:1.0.0'
 }

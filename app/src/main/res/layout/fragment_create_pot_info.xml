@@ -127,6 +127,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_pointer" />
 
+                <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_photo"
+                    app:layout_constraintStart_toStartOf="@id/iv_photo"
+                    app:layout_constraintTop_toTopOf="@id/iv_photo">
+
+                    <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
+                        android:id="@+id/seekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:progress="60"
+                        android:progressDrawable="@drawable/shape_seekbar_bg"
+                        android:splitTrack="false"
+                        android:thumb="@drawable/shape_seekbar_thumb"
+                        app:seekBarRotation="CW270" />
+                </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

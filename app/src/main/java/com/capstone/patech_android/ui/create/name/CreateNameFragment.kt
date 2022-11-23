@@ -7,6 +7,7 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentCreateNameBinding
 import com.capstone.patech_android.ui.create.CreateViewModel
+import com.capstone.patech_android.util.KeyBoardUtil
 import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
@@ -47,6 +48,7 @@ class CreateNameFragment : ViewModelFragment<FragmentCreateNameBinding, CreateVi
         }
         binding.tvNext.setOnClickListener {
             navigate(R.id.action_createNameFragment_to_createPotPhotoFragment)
+            KeyBoardUtil.hide(requireActivity())
         }
     }
 }
