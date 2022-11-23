@@ -64,7 +64,7 @@ class CreateViewModel : ViewModel() {
     // pot info
     val height = MutableLiveData("")
 
-    val ratio = MutableLiveData(0.0)
+    val ratio = MutableLiveData(0)
 
     val canComplete = MediatorLiveData<Boolean>().apply {
         addSource(
@@ -72,8 +72,7 @@ class CreateViewModel : ViewModel() {
         ) { triple ->
             val height = triple.first!!
             val ratio = triple.second!!
-            this.value = height.isNotBlank() && ratio == 0.0
-           // this.value = height.isNotBlank() && ratio != 0.0
+            this.value = height.isNotBlank() && ratio != 0
         }
     }
 }

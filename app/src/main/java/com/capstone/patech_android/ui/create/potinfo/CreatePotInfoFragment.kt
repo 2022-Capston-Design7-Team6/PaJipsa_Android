@@ -1,7 +1,6 @@
 package com.capstone.patech_android.ui.create.potinfo
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.SeekBar
 import android.widget.Toast
@@ -58,11 +57,15 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
                     progress: Int,
                     fromUser: Boolean
                 ) {
-                    Log.d("mySeekBar", progress.toString())
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                    if (seekBar != null) {
+                        viewModel.ratio.value = seekBar.progress
+                    }
+                }
             }
         )
     }
