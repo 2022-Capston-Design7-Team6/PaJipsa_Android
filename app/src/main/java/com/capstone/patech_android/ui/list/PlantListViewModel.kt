@@ -63,12 +63,17 @@ class PlantListViewModel : ViewModel() {
         }
     }
 
+    private val _successDelete = MutableLiveData<Boolean>()
+    val successDelete: LiveData<Boolean> = _successDelete
+
     fun deletePlant() {
         viewModelScope.launch {
             try {
-                // TODO: 식물 삭제 api test 필요 (식물등록 기능 구현 후)
-                for (planId in deleteItems.value.orEmpty()) {
-                    ServiceBuilder.plantService.deletePlant(planId)
+                for (plantId in deleteItems.value.orEmpty()) {
+                    val response = ServiceBuilder.plantService.deletePlant(plantId)
+                    if (response.code() == 204) {
+                        _successDelete.value = true
+                    }
                 }
             } catch (e: HttpException) {
                 Log.d("deletePlant", e.message().toString())

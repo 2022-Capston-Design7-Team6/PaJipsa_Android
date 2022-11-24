@@ -27,6 +27,7 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
         setCategoryFilterChangeList()
         setEditMode()
         setEditModeObserve()
+        setSuccessDeleteObserve()
     }
 
     private fun initPlantRVAdapter() {
@@ -85,6 +86,15 @@ class PlantListFragment : ViewModelFragment<FragmentPlantListBinding, PlantListV
             } else {
                 binding.layoutDefaultBtn.visibility = View.VISIBLE
                 binding.layoutEditMode.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun setSuccessDeleteObserve() {
+        viewModel.successDelete.observe(viewLifecycleOwner) { isSuccess ->
+            if(isSuccess) {
+                viewModel.editMode.value = false
+                viewModel.fetchPlantList()
             }
         }
     }

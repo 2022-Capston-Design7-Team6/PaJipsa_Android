@@ -2,9 +2,8 @@ package com.capstone.patech_android.data.api
 
 import com.capstone.patech_android.data.response.PlantDetailResponse
 import com.capstone.patech_android.data.response.PlantListResponse
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.Response
+import retrofit2.http.*
 
 interface PlantService {
 
@@ -19,5 +18,5 @@ interface PlantService {
     @DELETE("/plants/{plant}/")
     suspend fun deletePlant(
         @Path("plant") plantId: Int
-    )
+    ): Response<Unit>
 }
