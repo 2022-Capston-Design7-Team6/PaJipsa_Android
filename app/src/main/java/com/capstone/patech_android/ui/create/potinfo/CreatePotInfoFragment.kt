@@ -25,6 +25,7 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
         initView()
         addListener()
         setSeekBarChangeListener()
+        setSuccessCreateObserve()
     }
 
     private fun initView() {
@@ -42,10 +43,7 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
             popBackStack()
         }
         binding.tvComplete.setOnClickListener {
-            // 서버 연동
-            navigate(R.id.actionCreatePotInfoFragmentToPlantListFragment)
-            KeyBoardUtil.hide(requireActivity())
-            Toast.makeText(context, "새로운 파가 등록되었어요!", Toast.LENGTH_SHORT).show()
+            viewModel.postPlantCreate()
         }
     }
 
@@ -68,5 +66,18 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
                 }
             }
         )
+    }
+
+    private fun setSuccessCreateObserve() {
+        viewModel.successCreate.observe(viewLifecycleOwner) { isSuccess ->
+            if (isSuccess) {
+                binding.progressBar.visibility = View.GONE
+                navigate(R.id.actionCreatePotInfoFragmentToPlantListFragment)
+                KeyBoardUtil.hide(requireActivity())
+                Toast.makeText(context, "새로운 파가 등록되었어요!", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+        }
     }
 }

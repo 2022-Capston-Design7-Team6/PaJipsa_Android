@@ -44,7 +44,7 @@ class CreateNameFragment : ViewModelFragment<FragmentCreateNameBinding, CreateVi
             popBackStack()
         }
         binding.btnNameCheck.setOnClickListener {
-            // 닉네임 중복 확인 서버 api
+            viewModel.checkPlantNameValid()
         }
         binding.tvNext.setOnClickListener {
             navigate(R.id.action_createNameFragment_to_createPotPhotoFragment)
