@@ -73,4 +73,7 @@ dependencies {
 
     // Vertical SeekBar
     implementation 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:1.0.0'
+
+    // MP Android Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

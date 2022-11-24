@@ -3,9 +3,7 @@
 
     <!-- BindingFragment -->
     <string name="binding_error">Binding not initialized to reference the view.</string>
-    
-    <string name="unit_area">단위: cm²</string>
-    <string name="unit_height">단위: cm</string>
+
     <string name="price_format">%,2d원</string>
     <string name="green_onion_price">대파 시세 %,2d원/kg (%s 기준)</string>
 </resources>

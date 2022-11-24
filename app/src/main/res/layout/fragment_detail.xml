@@ -208,6 +208,7 @@
                     android:orientation="horizontal"
                     android:paddingHorizontal="4dp"
                     android:paddingVertical="3dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@id/tv_graph"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/tv_graph">
@@ -244,14 +245,11 @@
                         android:textColor="@color/selector_radio_graph_mode_text_color" />
                 </RadioGroup>
 
-
-                <ImageView
+                <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/layout_graph"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="260dp"
                     android:layout_marginTop="12dp"
-                    android:background="#f6f6f6"
-                    android:src="@drawable/img_graph"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_graph" />
@@ -263,12 +261,11 @@
                     android:layout_marginTop="6dp"
                     android:layout_marginEnd="20dp"
                     android:includeFontPadding="false"
-                    android:text="@string/unit_area"
+                    android:text="단위: 무게(g)"
                     android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
                     android:textColor="#676767"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layout_graph" />
-
 
                 <TextView
                     android:id="@+id/tv_timeline"
