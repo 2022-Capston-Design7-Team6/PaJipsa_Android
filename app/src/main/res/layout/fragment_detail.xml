@@ -255,7 +255,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_graph" />
 
                 <TextView
-                    android:id="@+id/tv_graph_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -264,6 +263,20 @@
                     android:text="단위: 무게(g)"
                     android:textAppearance="@style/TextAppearance.PatechComponents.Regular.10"
                     android:textColor="#676767"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_graph"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_graph" />
+
+                <TextView
+                    android:id="@+id/tv_graph_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:includeFontPadding="false"
+                    android:text="*그래프를 좌우로 움직여 보세요"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                    android:textColor="@color/gray_light2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/layout_graph" />
 

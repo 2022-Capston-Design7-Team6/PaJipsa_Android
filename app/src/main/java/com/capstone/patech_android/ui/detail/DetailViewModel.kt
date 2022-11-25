@@ -3,6 +3,7 @@ package com.capstone.patech_android.ui.detail
 import android.util.Log
 import androidx.lifecycle.*
 import com.capstone.patech_android.data.api.ServiceBuilder
+import com.capstone.patech_android.data.response.Graph
 import com.capstone.patech_android.data.response.TimeLine
 import com.capstone.patech_android.util.PairMediatorLiveData
 import kotlinx.coroutines.launch
@@ -37,6 +38,9 @@ class DetailViewModel : ViewModel() {
     private val _timelineList = MutableLiveData<List<TimeLine>>()
     val timelineList: LiveData<List<TimeLine>> = _timelineList
 
+    private val _graphDataList = MutableLiveData<List<Graph>>()
+    val graphDataList: LiveData<List<Graph>> = _graphDataList
+
     fun fetchDetailData(id: Int) {
         viewModelScope.launch {
             try {
@@ -44,6 +48,7 @@ class DetailViewModel : ViewModel() {
                     id
                 )
                 _timelineList.postValue(response.timeLineList)
+                _graphDataList.value = response.graphList.reversed()
                 _plantHarvest.value = response.plantInfo.harvestTime
                 _startDate.value = response.plantInfo.startDate
                 _birthDate.value = response.plantInfo.birthDay

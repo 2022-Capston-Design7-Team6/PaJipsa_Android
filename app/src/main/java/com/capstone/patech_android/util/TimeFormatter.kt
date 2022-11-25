@@ -1,7 +1,9 @@
 package com.capstone.patech_android.util
 
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 fun timeFormatToCalender(inputDate: String): Calendar? {
     val format = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX"
@@ -24,4 +26,13 @@ fun timeFormatToPreviewDate(inputDate: String): String {
 fun setTodayDate() : String {
     val simpleDateFormat = SimpleDateFormat("MM.dd", Locale.KOREA)
     return simpleDateFormat.format(Calendar.getInstance().time)
+}
+
+class GraphAxisValueFormat : IndexAxisValueFormatter() {
+    override fun getFormattedValue(value: Float): String {
+        val valueToDays = TimeUnit.DAYS.toMillis(value.toLong())
+        val timeDate = Date(valueToDays)
+        val formatDate = SimpleDateFormat("MM.dd", Locale.getDefault())
+        return formatDate.format(timeDate)
+    }
 }

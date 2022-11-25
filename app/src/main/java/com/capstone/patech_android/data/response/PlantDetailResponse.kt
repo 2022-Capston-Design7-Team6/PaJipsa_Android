@@ -13,10 +13,9 @@ data class PlantDetailResponse(
 
 data class Graph(
     val date: String,
-    val event: Int,
-    val length: Double,
-    val size: Double,
-    val weight: Double
+    val length: Float,
+    val size: Float,
+    val weight: Float
 )
 
 data class TimeLine(
