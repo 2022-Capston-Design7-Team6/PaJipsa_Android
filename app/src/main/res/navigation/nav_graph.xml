@@ -76,7 +76,15 @@
         android:id="@+id/profileFragment"
         android:name="com.capstone.patech_android.ui.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_renameFragment"
+            app:destination="@id/renameFragment" />
+
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/harvestFragment"
@@ -175,5 +183,15 @@
         <argument
             android:name="plantId"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/renameFragment"
+        android:name="com.capstone.patech_android.ui.profile.RenameFragment"
+        android:label="RenameFragment"
+        tools:layout="@layout/fragment_profile_rename" >
+
+        <argument
+            android:name="nickname"
+            app:argType="string" />
     </fragment>
 </navigation>
