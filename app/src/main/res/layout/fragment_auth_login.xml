@@ -44,22 +44,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:text="이메일"
+                android:text="아이디"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/et_email"
+                android:id="@+id/et_id"
                 style="@style/EditText.Patech.Auth"
-                android:hint="이메일을 입력해 주세요"
-                android:inputType="textEmailAddress" />
+                android:hint="아이디를 입력해 주세요"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:includeFontPadding="false"
-                android:text="해당 이메일을 찾을 수 없습니다"
+                android:text="해당 아이디를 찾을 수 없습니다"
                 android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
                 android:textColor="@color/red_alert"
                 android:visibility="invisible" />
