@@ -115,7 +115,8 @@ class CreateViewModel : ViewModel() {
                         plantName = plantName.value.orEmpty(),
                         category = selectedCategory.value!!,
                         potRatio = ratio.value!!.toFloat() / 100,
-                        potSize = height.value!!.toInt()
+                        potSize = height.value!!.toInt(),
+                        potImage = imageBase64
                     )
                 )
 

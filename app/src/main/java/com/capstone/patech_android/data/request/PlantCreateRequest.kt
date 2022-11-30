@@ -11,4 +11,6 @@ data class PlantCreateRequest(
     val potSize: Int,
     @SerializedName("pot_ratio")
     val potRatio: Float,
+    @SerializedName("pot_image")
+    val potImage: String,
 )
