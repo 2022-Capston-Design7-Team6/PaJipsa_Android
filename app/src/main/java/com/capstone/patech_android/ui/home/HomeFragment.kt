@@ -10,7 +10,6 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentHomeBinding
 import com.capstone.patech_android.util.navigate
-import com.capstone.patech_android.util.navigateWithData
 
 class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
     R.layout.fragment_home
@@ -72,9 +71,7 @@ class HomeFragment : ViewModelFragment<FragmentHomeBinding, HomeViewModel>(
             navigate(R.id.action_homeFragment_to_patechFragment)
         }
         binding.icProfile.setOnClickListener {
-            navigateWithData(
-                HomeFragmentDirections.actionHomeFragmentToProfileFragment(viewModel.nickname.value.orEmpty())
-            )
+            navigate(R.id.action_homeFragment_to_profileFragment)
         }
         binding.layoutListTitle.setOnClickListener {
             navigate(R.id.action_homeFragment_to_plantListFragment)

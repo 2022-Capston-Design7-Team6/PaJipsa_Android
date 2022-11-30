@@ -9,6 +9,7 @@ import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentAuthRegisterBinding
 import com.capstone.patech_android.ui.MainActivity
 import com.capstone.patech_android.ui.auth.AuthViewModel
+import com.capstone.patech_android.util.KeyBoardUtil
 import com.capstone.patech_android.util.popBackStack
 
 class RegisterFragment : ViewModelFragment<FragmentAuthRegisterBinding, AuthViewModel>(
@@ -36,6 +37,7 @@ class RegisterFragment : ViewModelFragment<FragmentAuthRegisterBinding, AuthView
             if (isSuccess) {
                 startActivity(Intent(requireContext(), MainActivity::class.java))
                 requireActivity().finish()
+                KeyBoardUtil.hide(requireActivity())
             }
         }
     }

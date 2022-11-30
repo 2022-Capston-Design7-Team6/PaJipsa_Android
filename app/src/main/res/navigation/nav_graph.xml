@@ -80,10 +80,6 @@
         <action
             android:id="@+id/action_profileFragment_to_renameFragment"
             app:destination="@id/renameFragment" />
-
-        <argument
-            android:name="nickname"
-            app:argType="string" />
     </fragment>
 
     <fragment
@@ -188,10 +184,5 @@
         android:id="@+id/renameFragment"
         android:name="com.capstone.patech_android.ui.profile.RenameFragment"
         android:label="RenameFragment"
-        tools:layout="@layout/fragment_profile_rename" >
-
-        <argument
-            android:name="nickname"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_profile_rename" />
 </navigation>

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
+import com.capstone.patech_android.data.SharedPreferenceController
 import com.capstone.patech_android.databinding.FragmentProfileRenameBinding
 import com.capstone.patech_android.util.popBackStack
 
@@ -14,12 +14,12 @@ class RenameFragment : ViewModelFragment<FragmentProfileRenameBinding, ProfileVi
     R.layout.fragment_profile_rename
 ) {
     override val viewModel: ProfileViewModel by viewModels()
-    private val args: ProfileFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.originNickname.value = args.nickname
-        viewModel.modifyNickname.value = args.nickname
+        val sdfNickname = SharedPreferenceController.getNickName()
+        viewModel.originNickname.value = sdfNickname
+        viewModel.modifyNickname.value = sdfNickname
         addListener()
         setObserver()
     }
@@ -45,6 +45,7 @@ class RenameFragment : ViewModelFragment<FragmentProfileRenameBinding, ProfileVi
             if(isSuccess == true) {
                 popBackStack()
                 Toast.makeText(context, "닉네임이 변경되었습니다.", Toast.LENGTH_LONG).show()
+                SharedPreferenceController.setNickName(viewModel.modifyNickname.value.orEmpty())
             }
         }
     }

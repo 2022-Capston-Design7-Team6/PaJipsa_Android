@@ -2,18 +2,15 @@ package com.capstone.patech_android.ui.profile
 
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.fragment.navArgs
 import com.capstone.patech_android.R
 import com.capstone.patech_android.base.BindingFragment
 import com.capstone.patech_android.databinding.FragmentProfileBinding
-import com.capstone.patech_android.util.navigateWithData
+import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(
     R.layout.fragment_profile
 ) {
-    private val args: ProfileFragmentArgs by navArgs()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListener()
@@ -24,9 +21,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(
             popBackStack()
         }
         binding.layoutModifyNickname.setOnClickListener {
-            navigateWithData(
-                ProfileFragmentDirections.actionProfileFragmentToRenameFragment(args.nickname)
-            )
+            navigate(R.id.action_profileFragment_to_renameFragment)
         }
     }
 }
