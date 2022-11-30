@@ -29,6 +29,11 @@
         <activity
             android:name="com.capstone.patech_android.ui.MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.capstone.patech_android.ui.auth.AuthActivity"
+            android:exported="true"
             android:screenOrientation="portrait">
 
             <intent-filter>
