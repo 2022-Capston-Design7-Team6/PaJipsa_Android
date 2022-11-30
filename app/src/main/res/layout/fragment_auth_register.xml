@@ -39,6 +39,7 @@
 
                 <TextView
                     android:id="@+id/tv_next"
+                    isAbleOrUnable="@{viewModel.isRegisterClickable}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -56,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="40dp"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginBottom="50dp"
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -75,9 +76,11 @@
                         android:id="@+id/et_id"
                         style="@style/EditText.Patech.Auth"
                         android:hint="아이디를 입력해 주세요"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="@={viewModel.registerId}" />
 
                     <TextView
+                        isVisibleOrInvisible="@{viewModel.showRegisterError &amp;&amp; viewModel.showRegisterError != null}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -101,7 +104,8 @@
                         style="@style/EditText.Patech.Auth"
                         android:hint="비밀번호를 입력해 주세요"
                         android:inputType="textPassword"
-                        android:maxLength="20" />
+                        android:maxLength="20"
+                        android:text="@={viewModel.registerPw}" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -127,9 +131,11 @@
                         style="@style/EditText.Patech.Auth"
                         android:hint="비밀번호를 다시 한번 입력해 주세요"
                         android:inputType="textPassword"
-                        android:maxLength="20" />
+                        android:maxLength="20"
+                        android:text="@={viewModel.pwCheck}" />
 
                     <TextView
+                        isVisibleOrInvisible="@{!viewModel.isPasswordSame &amp;&amp; viewModel.isPasswordSame != null}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -173,7 +179,7 @@
                             android:maxLines="1"
                             android:padding="16dp"
                             android:scrollbars="none"
-                            android:text=""
+                            android:text="@={viewModel.nickname}"
                             android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
                             android:textColor="@color/black" />
 
@@ -182,7 +188,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="14dp"
-                            android:src="@drawable/ic_check_gray" />
+                            android:src="@drawable/ic_check_gray"
+                            android:visibility="gone" />
                     </LinearLayout>
 
                     <TextView
