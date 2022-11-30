@@ -19,6 +19,7 @@ class LoginFragment : ViewModelFragment<FragmentAuthLoginBinding, AuthViewModel>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addListener()
+        setObserver()
     }
 
     private fun addListener() {
@@ -26,8 +27,16 @@ class LoginFragment : ViewModelFragment<FragmentAuthLoginBinding, AuthViewModel>
             popBackStack()
         }
         binding.tvLogin.setOnClickListener {
-            startActivity(Intent(requireContext(), MainActivity::class.java))
-            requireActivity().finish()
+            viewModel.postLogin()
+        }
+    }
+
+    private fun setObserver() {
+        viewModel.isLoginSuccess.observe(viewLifecycleOwner) { isSuccess ->
+            if (isSuccess) {
+                startActivity(Intent(requireContext(), MainActivity::class.java))
+                requireActivity().finish()
+            }
         }
     }
 }

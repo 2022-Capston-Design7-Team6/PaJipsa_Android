@@ -1,5 +1,6 @@
 package com.capstone.patech_android.data.api
 
+import com.capstone.patech_android.data.SharedPreferenceController
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,8 +14,7 @@ object ServiceBuilder {
     private val headerInterceptor = Interceptor { chain ->
         with(chain) {
             val newRequest = request().newBuilder()
-                //.addHeader("Authorization", "Token " + SharedPreferenceController.getJwtToken()!!)
-                .addHeader("Authorization", "Token " + "46676f20ceb2c5cfa21c09e6cbed9cc6a80e991e")
+                .addHeader("Authorization", SharedPreferenceController.getToken().toString())
                 .build()
             proceed(newRequest)
         }
@@ -29,7 +29,7 @@ object ServiceBuilder {
         .addInterceptor(headerInterceptor)
         .connectTimeout(100, TimeUnit.SECONDS)
         .readTimeout(100, TimeUnit.SECONDS)
-        .writeTimeout(100,TimeUnit.SECONDS)
+        .writeTimeout(100, TimeUnit.SECONDS)
         .build()
 
     private val retrofit: Retrofit = Retrofit.Builder()

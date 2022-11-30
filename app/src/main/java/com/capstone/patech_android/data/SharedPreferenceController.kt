@@ -5,7 +5,8 @@ import android.content.SharedPreferences
 
 object SharedPreferenceController {
     private const val STORAGE_KEY = "user_auth"
-    private const val TOKEN = "JWT_TOKEN"
+    private const val TOKEN = "AUTH_TOKEN"
+    private const val NICKNAME = "NICKNAME"
 
     private lateinit var sharedPreferences: SharedPreferences
 
@@ -16,17 +17,27 @@ object SharedPreferenceController {
         )
     }
 
-    fun getJwtToken(): String? {
+    fun getToken(): String? {
         return sharedPreferences.getString(TOKEN, "")
     }
 
-    fun setJwtToken(jwt: String) {
+    fun setToken(token: String) {
         sharedPreferences.edit()
-            .putString(TOKEN, jwt)
+            .putString(TOKEN, "Token $token")
             .apply()
     }
 
-    fun clearJwtToken(context: Context) {
+    fun getNickName(): String? {
+        return sharedPreferences.getString(NICKNAME, "")
+    }
+
+    fun setNickName(nickname: String) {
+        sharedPreferences.edit()
+            .putString(NICKNAME, nickname)
+            .apply()
+    }
+
+    fun clearSdf(context: Context) {
         sharedPreferences.edit().clear().apply()
     }
 }
