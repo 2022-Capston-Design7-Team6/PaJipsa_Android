@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.patech_android.data.response.TimeLine
 import com.capstone.patech_android.databinding.ItemDetailTimelineBinding
+import com.capstone.patech_android.util.navigateWithData
 import com.capstone.patech_android.util.timeFormatToCalender
 import java.util.*
 
@@ -24,6 +25,12 @@ class DetailTimelineAdapter :
                 val date = time.get(Calendar.DATE)
                 val string = "$month.$date"
                 binding.tvDate.text = string
+            }
+
+            binding.root.setOnClickListener {
+                it.navigateWithData(
+                    DetailFragmentDirections.actionDetailFragmentToRecordDetailFragment(data.id)
+                )
             }
         }
     }

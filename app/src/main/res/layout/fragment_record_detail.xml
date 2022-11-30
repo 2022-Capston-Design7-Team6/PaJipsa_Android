@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_arrow_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:includeFontPadding="false"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                    app:layout_constraintStart_toEndOf="@id/btn_back"
+                    app:layout_constraintTop_toTopOf="@id/btn_back"
+                    tools:text="2022.10.20" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+                <LinearLayout
+                    android:id="@+id/layout_before"
+                    isVisibleOrGone=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view">
+
+                    <TextView
+                        android:id="@+id/tv_before"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="10dp"
+                        android:includeFontPadding="false"
+                        android:text="수확하기 전 파"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/iv_photo_before"
+                        android:layout_width="match_parent"
+                        android:layout_height="430dp"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_before" />
+
+                    <TextView
+                        android:id="@+id/tv_after"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="20dp"
+                        android:includeFontPadding="false"
+                        android:text="수확 후 파"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Medium.16"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_photo_before" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_photo_after"
+                    android:layout_width="match_parent"
+                    android:layout_height="430dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_before" />
+
+                <LinearLayout
+                    android:id="@+id/layout_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@id/iv_photo_after"
+                    app:layout_constraintTop_toBottomOf="@id/iv_photo_after">
+
+                    <TextView
+                        android:id="@+id/tv_harvest"
+                        style="@style/CategoryTextView.Patech.Timeline"
+                        isVisibleOrGone=""
+                        android:text="수확" />
+
+                    <TextView
+                        android:id="@+id/tv_water"
+                        style="@style/CategoryTextView.Patech.Timeline"
+                        isVisibleOrGone=""
+                        android:text="물주기" />
+
+                    <TextView
+                        android:id="@+id/tv_trowel"
+                        style="@style/CategoryTextView.Patech.Timeline"
+                        isVisibleOrGone=""
+                        android:text="분갈이" />
+                </LinearLayout>
+
+                <TextView
+                    isVisibleOrInvisible=""
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="70dp"
+                    android:background="@drawable/shape_black_sub_stroke_2_radius_8"
+                    android:includeFontPadding="false"
+                    android:padding="20dp"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_category" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
