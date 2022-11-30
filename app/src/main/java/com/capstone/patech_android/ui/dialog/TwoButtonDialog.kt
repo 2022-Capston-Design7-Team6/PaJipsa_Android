@@ -56,6 +56,10 @@ class TwoButtonDialog(
                 titleSub = "파테크 정보가 모두 사라집니다.",
                 confirm = "탈퇴하기"
             )
+            LOGOUT -> setText(
+                title = "로그아웃 하시겠습니까?",
+                confirm = "로그아웃"
+            )
         }
     }
 
@@ -63,6 +67,12 @@ class TwoButtonDialog(
         binding.tvTitle.text = title
         binding.tvTitleSub.text = titleSub
         binding.tvConfirm.text = confirm
+    }
+
+    private fun setText(title: String, confirm: String) {
+        binding.tvTitle.text = title
+        binding.tvConfirm.text = confirm
+        binding.tvTitleSub.visibility = View.GONE
     }
 
     private fun setClickListener() {
@@ -79,5 +89,6 @@ class TwoButtonDialog(
     companion object {
         const val PLANT_DELETE = 0
         const val WITHDRAWAL = 1
+        const val LOGOUT = 2
     }
 }
