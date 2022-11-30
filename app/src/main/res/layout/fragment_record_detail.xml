@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.detail.recorddetail.RecordDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:includeFontPadding="false"
+                    android:text="@{viewModel.date}"
                     android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@id/btn_back"
@@ -58,7 +62,7 @@
 
                 <LinearLayout
                     android:id="@+id/layout_before"
-                    isVisibleOrGone=""
+                    isVisibleOrGone="@{viewModel.beforeImage != null}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -79,6 +83,7 @@
 
                     <ImageView
                         android:id="@+id/iv_photo_before"
+                        imageCoil="@{viewModel.beforeImage}"
                         android:layout_width="match_parent"
                         android:layout_height="430dp"
                         android:layout_marginHorizontal="30dp"
@@ -103,6 +108,7 @@
 
                 <ImageView
                     android:id="@+id/iv_photo_after"
+                    imageCoil="@{viewModel.image}"
                     android:layout_width="match_parent"
                     android:layout_height="430dp"
                     android:layout_marginHorizontal="30dp"
@@ -123,24 +129,24 @@
                     <TextView
                         android:id="@+id/tv_harvest"
                         style="@style/CategoryTextView.Patech.Timeline"
-                        isVisibleOrGone=""
+                        isVisibleOrGone="@{viewModel.isHarvest}"
                         android:text="수확" />
 
                     <TextView
                         android:id="@+id/tv_water"
                         style="@style/CategoryTextView.Patech.Timeline"
-                        isVisibleOrGone=""
+                        isVisibleOrGone="@{viewModel.isWater}"
                         android:text="물주기" />
 
                     <TextView
                         android:id="@+id/tv_trowel"
                         style="@style/CategoryTextView.Patech.Timeline"
-                        isVisibleOrGone=""
+                        isVisibleOrGone="@{viewModel.isTrowel}"
                         android:text="분갈이" />
                 </LinearLayout>
 
                 <TextView
-                    isVisibleOrInvisible=""
+                    isVisibleOrInvisible="@{viewModel.record.length() != 0}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -149,6 +155,7 @@
                     android:background="@drawable/shape_black_sub_stroke_2_radius_8"
                     android:includeFontPadding="false"
                     android:padding="20dp"
+                    android:text="@{viewModel.record}"
                     android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"

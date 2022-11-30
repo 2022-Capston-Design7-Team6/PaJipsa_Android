@@ -1,6 +1,7 @@
 package com.capstone.patech_android.data.api
 
 import com.capstone.patech_android.data.request.PlantCreateRequest
+import com.capstone.patech_android.data.response.OnePlantDetailResponse
 import com.capstone.patech_android.data.response.PlantDetailResponse
 import com.capstone.patech_android.data.response.PlantListResponse
 import retrofit2.Response
@@ -30,4 +31,9 @@ interface PlantService {
     suspend fun postPlantCreate(
         @Body body: PlantCreateRequest
     ): Response<Unit>
+
+    @GET("/photos/{recordId}/")
+    suspend fun getOnePlantDetail(
+        @Path("recordId") recordId: Int
+    ): OnePlantDetailResponse
 }
