@@ -7,7 +7,6 @@ import com.capstone.patech_android.R
 import com.capstone.patech_android.base.ViewModelFragment
 import com.capstone.patech_android.databinding.FragmentAuthRegisterBinding
 import com.capstone.patech_android.ui.auth.AuthViewModel
-import com.capstone.patech_android.util.navigate
 import com.capstone.patech_android.util.popBackStack
 
 class RegisterFragment : ViewModelFragment<FragmentAuthRegisterBinding, AuthViewModel>(
@@ -25,7 +24,7 @@ class RegisterFragment : ViewModelFragment<FragmentAuthRegisterBinding, AuthView
             popBackStack()
         }
         binding.tvNext.setOnClickListener {
-            navigate(R.id.action_registerFragment_to_registerNameFragment)
+
         }
     }
 }

@@ -22,17 +22,7 @@
         android:id="@+id/registerFragment"
         android:name="com.capstone.patech_android.ui.auth.register.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_auth_register">
-        <action
-            android:id="@+id/action_registerFragment_to_registerNameFragment"
-            app:destination="@id/registerNameFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/registerNameFragment"
-        android:name="com.capstone.patech_android.ui.auth.register.RegisterNameFragment"
-        android:label="RegisterNameFragment"
-        tools:layout="@layout/fragment_auth_register_name" />
+        tools:layout="@layout/fragment_auth_register" />
 
     <fragment
         android:id="@+id/loginFragment"

@@ -2,132 +2,201 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.capstone.patech_android.ui.auth.AuthViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_arrow_left"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:includeFontPadding="false"
-            android:text="회원가입"
-            android:textAppearance="@style/TextAppearance.PatechComponents.Bold.20"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@id/btn_back"
-            app:layout_constraintStart_toEndOf="@id/btn_back"
-            app:layout_constraintTop_toTopOf="@id/btn_back" />
-
-        <TextView
-            android:id="@+id/tv_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:includeFontPadding="false"
-            android:paddingVertical="8dp"
-            android:text="다음"
-            android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
-            android:textColor="@color/black_sub"
-            app:layout_constraintBottom_toBottomOf="@id/btn_back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_back" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="40dp"
-            android:orientation="vertical"
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_back">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:text="아이디"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
-                android:textColor="@color/black" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/et_id"
-                style="@style/EditText.Patech.Auth"
-                android:hint="아이디를 입력해 주세요"
-                android:inputType="text" />
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_arrow_left"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:includeFontPadding="false"
-                android:text="이미 사용 중인 아이디입니다"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
-                android:textColor="@color/red_alert"
-                android:visibility="invisible" />
+                <TextView
+                    android:id="@+id/tv_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:includeFontPadding="false"
+                    android:paddingVertical="8dp"
+                    android:text="회원가입"
+                    android:textAppearance="@style/TextAppearance.PatechComponents.Regular.14"
+                    android:textColor="@color/black_sub"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/btn_back" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:includeFontPadding="false"
-                android:text="비밀번호"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
-                android:textColor="@color/black" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="100dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btn_back">
 
-            <EditText
-                android:id="@+id/et_password"
-                style="@style/EditText.Patech.Auth"
-                android:hint="비밀번호를 입력해 주세요"
-                android:inputType="textPassword"
-                android:maxLength="20" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="아이디"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:includeFontPadding="false"
-                android:text="8~20자의 영어, 숫자, 특수문자 조합으로 입력해 주세요"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
-                android:textColor="@color/red_alert"
-                android:visibility="invisible" />
+                    <EditText
+                        android:id="@+id/et_id"
+                        style="@style/EditText.Patech.Auth"
+                        android:hint="아이디를 입력해 주세요"
+                        android:inputType="text" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:includeFontPadding="false"
-                android:text="비밀번호 확인"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
-                android:textColor="@color/black" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="이미 사용 중인 아이디입니다"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                        android:textColor="@color/red_alert"
+                        android:visibility="invisible" />
 
-            <EditText
-                android:id="@+id/et_password_check"
-                style="@style/EditText.Patech.Auth"
-                android:hint="비밀번호를 다시 한번 입력해 주세요"
-                android:inputType="textPassword"
-                android:maxLength="20" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:includeFontPadding="false"
+                        android:text="비밀번호"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+                        android:textColor="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:includeFontPadding="false"
-                android:text="비밀번호가 일치하지 않습니다"
-                android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
-                android:textColor="@color/red_alert"
-                android:visibility="invisible" />
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/et_password"
+                        style="@style/EditText.Patech.Auth"
+                        android:hint="비밀번호를 입력해 주세요"
+                        android:inputType="textPassword"
+                        android:maxLength="20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="8~20자의 영어, 숫자, 특수문자 조합으로 입력해 주세요"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                        android:textColor="@color/red_alert"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:includeFontPadding="false"
+                        android:text="비밀번호 확인"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/et_password_check"
+                        style="@style/EditText.Patech.Auth"
+                        android:hint="비밀번호를 다시 한번 입력해 주세요"
+                        android:inputType="textPassword"
+                        android:maxLength="20" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="비밀번호가 일치하지 않습니다"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                        android:textColor="@color/red_alert"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:includeFontPadding="false"
+                        android:text="닉네임"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Bold.16"
+                        android:textColor="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/layout_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/shape_green_stroke_2_radius_8"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/layout_title">
+
+                        <EditText
+                            android:id="@+id/et_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:hint="닉네임을 입력해 주세요"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:maxLength="10"
+                            android:maxLines="1"
+                            android:padding="16dp"
+                            android:scrollbars="none"
+                            android:text=""
+                            android:textAppearance="@style/TextAppearance.PatechComponents.Medium.14"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/btn_name_check"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="14dp"
+                            android:src="@drawable/ic_check_gray" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:includeFontPadding="false"
+                        android:text="이미 사용중인 닉네임입니다"
+                        android:textAppearance="@style/TextAppearance.PatechComponents.Regular.12"
+                        android:textColor="@color/red_alert"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
