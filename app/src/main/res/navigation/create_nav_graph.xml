@@ -45,11 +45,12 @@
         tools:layout="@layout/fragment_create_pot_info">
 
         <action
-            android:id="@+id/actionCreatePotInfoFragmentToPlantListFragment"
-            app:destination="@id/plantListFragment"
-            app:popUpTo="@id/plantListFragment"
+            android:id="@+id/actionCreatePotInfoFragmentToHomeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
     </fragment>
+
     <fragment
         android:id="@+id/createPotCameraFragment"
         android:name="com.capstone.patech_android.ui.create.potphoto.CreatePotCameraFragment"

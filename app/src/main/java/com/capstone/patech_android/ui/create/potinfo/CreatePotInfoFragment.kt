@@ -72,7 +72,7 @@ class CreatePotInfoFragment : ViewModelFragment<FragmentCreatePotInfoBinding, Cr
         viewModel.successCreate.observe(viewLifecycleOwner) { isSuccess ->
             if (isSuccess) {
                 binding.progressBar.visibility = View.GONE
-                navigate(R.id.actionCreatePotInfoFragmentToPlantListFragment)
+                navigate(R.id.actionCreatePotInfoFragmentToHomeFragment)
                 KeyBoardUtil.hide(requireActivity())
                 Toast.makeText(context, "새로운 파가 등록되었어요!", Toast.LENGTH_SHORT).show()
             } else {
